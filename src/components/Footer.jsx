@@ -4,7 +4,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Mail } from '@mui/icons-material';
 
 function Footer() {
   return (
@@ -15,6 +14,7 @@ function Footer() {
         backgroundColor: 'darkslategray',
         color: 'white',
         padding: '1em',
+        paddingBottom: '1.5em',
       }}
     >
       <Grid

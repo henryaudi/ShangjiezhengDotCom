@@ -27,6 +27,14 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const handleScrollToSelection = function (selectionId) {
+    const section = document.getElementById(selectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    handleCloseNavMenu();
+  };
+
   return (
     <AppBar position='static' sx={{ bgcolor: 'darkslategray' }}>
       <Container maxWidth='xl'>
@@ -76,7 +84,10 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={() => handleScrollToSelection(page.toLowerCase())}
+                >
                   <Typography textAlign='center'>{page}</Typography>
                 </MenuItem>
               ))}
@@ -106,7 +117,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleScrollToSelection(page.toLowerCase())}
                 sx={{
                   my: 2,
                   mx: 1,
@@ -127,4 +138,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

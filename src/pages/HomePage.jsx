@@ -6,6 +6,7 @@ import LeftPanel from '../components/LeftPanel';
 import RightPanel from '../components/RightPanel';
 import Footer from '../components/Footer';
 import { Box } from '@mui/material';
+import GoUp from '../components/GoUp';
 
 function HomePage() {
   return (
@@ -24,6 +25,9 @@ function HomePage() {
           <Footer />
         </Box>
       </Stack>
+      <Box>
+        <GoUp />
+      </Box>
     </>
   );
 }

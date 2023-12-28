@@ -10,16 +10,16 @@ function RightPanel() {
       spacing={5}
       sx={{ marginLeft: { xs: '0', md: '3.5em' }, marginBottom: '2em' }}
     >
-      <div>
+      <div id='about'>
         <Welcome />
       </div>
-      <div>
+      <div id='experience'>
         <Experience />
       </div>
-      <div>
+      <div id='skills'>
         <Skills />
       </div>
-      <div>
+      <div id='projects'>
         <Projects />
       </div>
     </Stack>

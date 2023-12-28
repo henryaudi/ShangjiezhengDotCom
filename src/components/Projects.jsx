@@ -1,4 +1,6 @@
-import { Stack, Typography } from '@mui/material';
+import React, { useEffect, useState, useRef } from 'react';
+import { Stack, Typography, Grow } from '@mui/material';
+
 import ProjectItem from './ProjectItem';
 
 const projects = [
@@ -48,6 +50,38 @@ const projects = [
 ];
 
 function Projects() {
+  const [visibleItems, setVisibleItems] = useState(new Set());
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleItems((prevVisibleItems) => {
+              const newVisibleItems = new Set([
+                ...prevVisibleItems,
+                entry.target.id,
+              ]);
+              observerRef.current.unobserve(entry.target);
+              return newVisibleItems;
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const projectElements = document.querySelectorAll('.project-item');
+    projectElements.forEach((elem) => observerRef.current.observe(elem));
+
+    return () => {
+      projectElements.forEach((elem) => {
+        if (observerRef.current) observerRef.current.unobserve(elem);
+      });
+    };
+  }, []);
+
   return (
     <Stack spacing={2}>
       <div>
@@ -61,7 +95,11 @@ function Projects() {
       </div>
       <Stack spacing={5} style={{ marginTop: '0.75em' }}>
         {projects.map((project, index) => (
-          <ProjectItem key={project.title} project={projects[index]} />
+          <Grow in={visibleItems.has(`project-${index}`)} key={project.title}>
+            <div id={`project-${index}`} className='project-item'>
+              <ProjectItem project={project} />
+            </div>
+          </Grow>
         ))}
       </Stack>
     </Stack>

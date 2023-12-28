@@ -1,5 +1,8 @@
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { Stack, Typography } from '@mui/material';
+
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import StickyBox from 'react-sticky-box';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -9,8 +12,8 @@ import ContactInfo from './ContactInfo';
 
 function LeftPanel() {
   return (
-    <>
-      <Grid container spacing={2}>
+    <StickyBox>
+      <Grid container spacing={2} style={{ position: 'sticky' }}>
         <Grid
           item
           xs={4}
@@ -63,7 +66,7 @@ function LeftPanel() {
           </Stack>
         </Grid>
       </Grid>
-    </>
+    </StickyBox>
   );
 }
 
