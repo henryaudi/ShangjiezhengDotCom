@@ -18,6 +18,7 @@ const pages = ['About', 'Experience', 'Skills', 'Projects'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const appBarRef = React.useRef(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -27,16 +28,29 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleScrollToSelection = function (selectionId) {
+  const handleScrollToSelection = (selectionId) => {
     const section = document.getElementById(selectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      let offsetPosition = section.offsetTop;
+
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        const appBarHeight = appBarRef.current
+          ? appBarRef.current.clientHeight
+          : 0;
+        offsetPosition -= appBarHeight;
+      }
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
     handleCloseNavMenu();
   };
 
   return (
     <AppBar
+      ref={appBarRef}
       position='static'
       sx={{
         bgcolor: 'darkslategray',
