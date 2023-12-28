@@ -11,8 +11,20 @@ import GoUp from '../components/GoUp';
 function HomePage() {
   return (
     <>
-      <Stack spacing={2}>
+      <Box sx={{ display: { xs: 'none', sm: 'block' }, zIndex: 1000 }}>
         <PageNav />
+      </Box>
+      <Box
+        sx={{
+          position: 'sticky',
+          top: 0,
+          display: { xs: 'block', sm: 'none', md: 'none' },
+          zIndex: 1000,
+        }}
+      >
+        <PageNav />
+      </Box>
+      <Stack spacing={2}>
         <Grid container spacing={2} sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}>
           <Grid item sm={12} md={3} lg={2}>
             <LeftPanel />
