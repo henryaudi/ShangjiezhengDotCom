@@ -1,7 +1,12 @@
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Stack, Typography } from '@mui/material';
 
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import StickyBox from 'react-sticky-box';
+
+import Portrait from '../../public/portrait.png';
+import PortraitPlaceholder from '../../public/portraitPlaceholder.jpg';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -25,10 +30,17 @@ function LeftPanel() {
             alignItems: 'center',
           }}
         >
-          <img
+          {/* <img
             src='/portrait.png'
             id='portrait'
             alt='portrait'
+            style={{ width: '100%', maxWidth: '100%' }}
+          /> */}
+          <LazyLoadImage
+            src={Portrait}
+            placeholderSrc={PortraitPlaceholder}
+            alt='portrait'
+            effect='blur'
             style={{ width: '100%', maxWidth: '100%' }}
           />
         </Grid>

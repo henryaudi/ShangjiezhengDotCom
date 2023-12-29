@@ -24,7 +24,7 @@ function HomePage() {
       >
         <PageNav />
       </Box>
-      <Stack spacing={2}>
+      <Stack spacing={2} sx={{ mt: '1em' }}>
         <Grid container spacing={2} sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}>
           <Grid item sm={12} md={3} lg={2}>
             <LeftPanel />
