@@ -4,6 +4,7 @@ import { Stack, Typography } from '@mui/material';
 
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import StickyBox from 'react-sticky-box';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import Portrait from '../../public/portrait.png';
 import PortraitPlaceholder from '../../public/portraitPlaceholder.jpg';

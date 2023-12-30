@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Stack, Typography, Grow } from '@mui/material';
+import { useEffect, useState, useRef } from 'react';
+import { Stack, Typography, Grow, Paper, Link } from '@mui/material';
 
 import ProjectItem from './ProjectItem';
+import CustomSvgIcon from './CustomSvgIcon';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const projects = [
   {
@@ -101,6 +103,64 @@ function Projects() {
             </div>
           </Grow>
         ))}
+        <Grow in={visibleItems.has('moreprojects')} key='moreprojects'>
+          <div id={'moreprojects'} className='project-item'>
+            <Paper elevation={16} sx={{ padding: '16px' }}>
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <div
+                  style={{
+                    minWidth: '30px',
+                    marginRight: '0.5em',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <CustomSvgIcon path='/github-svgrepo-com.svg' />
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography
+                    variant='h6'
+                    component='h4'
+                    style={{
+                      display: 'inline-flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
+                    }}
+                  >
+                    For more interesting projects, visit my{' '}
+                    <a
+                      href='https://github.com/henryaudi'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      style={{
+                        textDecoration: 'underline',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        color: 'rgb(39, 190, 180)',
+                      }}
+                    >
+                      <OpenInNewIcon sx={{ color: 'rgb(39, 190, 180)' }} />
+                      GitHub
+                    </a>
+                    !
+                  </Typography>
+                </div>
+              </div>
+            </Paper>
+          </div>
+        </Grow>
       </Stack>
     </Stack>
   );
