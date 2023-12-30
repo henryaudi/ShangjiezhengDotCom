@@ -115,46 +115,47 @@ function Projects() {
               >
                 <div
                   style={{
-                    minWidth: '30px',
-                    marginRight: '0.5em',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  <CustomSvgIcon path='/github-svgrepo-com.svg' />
-                </div>
-                <div
-                  style={{
+                    fontWeight: 'bold',
                     display: 'flex',
                     alignItems: 'center',
                   }}
                 >
-                  <Typography
-                    variant='h6'
-                    component='h4'
+                  <div
                     style={{
-                      display: 'inline-flex',
-                      flexWrap: 'wrap',
+                      minWidth: '30px',
+                      marginRight: '0.5em',
+                      display: 'flex',
+                      justifyContent: 'center',
                       alignItems: 'center',
                     }}
                   >
-                    For more interesting projects, visit my{' '}
-                    <a
-                      href='https://github.com/henryaudi'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      style={{
-                        textDecoration: 'underline',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        color: 'rgb(39, 190, 180)',
-                      }}
+                    <CustomSvgIcon path='/github-svgrepo-com.svg' />
+                  </div>
+                  <Typography variant='h6' component='h4'>
+                    <span
+                      style={{ alignItems: 'center', display: 'inlineFlex' }}
                     >
-                      <OpenInNewIcon sx={{ color: 'rgb(39, 190, 180)' }} />
-                      GitHub
-                    </a>
-                    !
+                      For more interesting projects, visit my
+                      <a
+                        href='https://github.com/henryaudi'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        style={{
+                          textDecoration: 'underline',
+                          alignItems: 'center',
+                          color: 'rgb(39, 190, 180)',
+                        }}
+                      >
+                        <OpenInNewIcon
+                          sx={{
+                            color: 'rgb(39, 190, 180)',
+                            marginLeft: '4px',
+                            verticalAlign: 'middle',
+                          }}
+                        />
+                        GitHub!
+                      </a>
+                    </span>
                   </Typography>
                 </div>
               </div>
