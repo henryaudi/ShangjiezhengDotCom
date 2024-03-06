@@ -109,51 +109,6 @@ function SkillsLists() {
         </Paper>
       </Grid>
 
-      {/* <Grid item xs={10} sm={6} md={6} lg={3}>
-        <Paper elevation={12} style={{ padding: '16px' }}>
-          <Stack spacing={1}>
-            <div
-              style={{
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '0px',
-              }}
-            >
-              <div style={{ minWidth: '30px', marginRight: '0.25em' }}>
-                <CustomSvgIcon path='/database-03-svgrepo-com.svg' />
-              </div>
-              Storage Solutions
-            </div>
-            <List style={{ paddingTop: 0 }}>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/mysql-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='MySQL' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/mongodb-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='MongoDB' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/bucket-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Amazon S3' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/redis-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Redis' />
-              </ListItem>
-            </List>
-          </Stack>
-        </Paper>
-      </Grid> */}
       <Grid item xs={10} sm={6} md={6} lg={3}>
         <Paper elevation={12} style={{ padding: '16px' }}>
           <Stack spacing={1}>
