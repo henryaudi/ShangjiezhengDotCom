@@ -4,6 +4,16 @@ import JobItem from './JobItem';
 
 const JOBS = [
   {
+    title: 'Graduate Research Assistant',
+    date: 'Aug, 2023 - Present',
+    details: [
+      'Gained expertise and understanding in manufacturing process and the operation, maintenance and mechanism behind the production equipment adopted by the company.',
+      'Conducted research and utilized Computer-Aided Design (CAD) tools for 2/3D design projects in AutoCAD to actively support project progress across different departments in the company.',
+      'Facilitated communication between engineering team from China and local company employees. Prepared data for management reviews, enhancing work coordination and collaboration efficiency.',
+    ],
+    company: 'Southern Methodist University',
+  },
+  {
     title: 'Teaching Assistant (CS3353: Fundamentals of Algorithm)',
     date: 'Feb, 2023 - May, 2023',
     details: [
