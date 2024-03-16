@@ -15,6 +15,12 @@ const projects = [
       'Achieved final model capable of translating natural language into logical form, following extensive optimization.',
     ],
     iconPath: '/machine-learning-01-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Data processing toolkit repository',
+        url: 'https://github.com/henryaudi/DataProcessingToolkit',
+      },
+    ],
   },
   {
     title: 'TA Management Application (SMU CS Department)',
@@ -25,6 +31,16 @@ const projects = [
       'Our team Utilized software tools for version control (GitHub) and container environments (Docker) during team development.',
     ],
     iconPath: '/teacher-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Front-end repository',
+        url: 'https://github.com/henryaudi/CS5-7328-Project-2023-Fall-Frontend',
+      },
+      {
+        title: 'Back-end repository',
+        url: 'https://github.com/henryaudi/CS5-7328-Project-2023-Fall-Backend',
+      },
+    ],
   },
   {
     title: 'Roadside Assistance Application',
@@ -35,6 +51,12 @@ const projects = [
       'Back-end functionalities and integrated DBMS (MySQL) are engineered on top of Node.js framework ensuring a reliable and efficient software system.',
     ],
     iconPath: '/mechanic-garage-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Project repository',
+        url: 'https://github.com/henryaudi/RoadsideAssistance',
+      },
+    ],
   },
   {
     title: 'shangjiezheng.com',
@@ -52,6 +74,12 @@ const projects = [
       'Enabled HTTPS with an SSL certificate to enhance website security.',
     ],
     iconPath: '/favicon-svg.svg',
+    links: [
+      {
+        title: 'Project repository',
+        url: 'https://github.com/henryaudi/ShangjiezhengDotCom',
+      },
+    ],
   },
   {
     title: 'PID Quadcopter Control System',
