@@ -7,6 +7,16 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const projects = [
   {
+    title: 'Accountable Software Systems Adaptive to Changing Legal Context',
+    techStacks: ['Python', 'GPT-3.5', 'Gemini', 'spaCy', 'Keras'],
+    actions: [
+      'Developed and refined a machine learning software toolset for processing and analyzing legal context data.',
+      'Fine-tuned GPT-3.5, Gemini models to develop specialized classifier using open-source ML libraries (Keras, spaCy).',
+      'Achieved final model capable of translating natural language into logical form, following extensive optimization.',
+    ],
+    iconPath: '/machine-learning-01-svgrepo-com.svg',
+  },
+  {
     title: 'TA Management Application (SMU CS Department)',
     techStacks: ['TypeScript', 'React', 'Node.js', 'MySQL', 'Jest', 'GitHub'],
     actions: [

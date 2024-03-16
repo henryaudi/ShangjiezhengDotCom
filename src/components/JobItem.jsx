@@ -90,7 +90,7 @@ function JobItem({ job }) {
           >
             <List component='div' disablePadding>
               {details.map((detail, index) => (
-                <li key={index}>
+                <li key={index} style={{ marginTop: '0.5em' }}>
                   {index + 1}. {detail}
                 </li>
               ))}
