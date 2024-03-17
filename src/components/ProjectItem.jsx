@@ -5,8 +5,6 @@ import {
   Link,
   List,
   ListItem,
-  IconButton,
-  Box,
   Paper,
   Stack,
   Typography,
@@ -14,17 +12,13 @@ import {
 
 import CustomSvgIcon from './CustomSvgIcon';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import DropDownButton from './DropDownButton';
 
 function ProjectItem({ project }) {
   const { title, techStacks, actions, iconPath, links } = project;
 
   const [open, setOpen] = useState(false);
-
-  const handleToggle = function () {
-    setOpen((open) => !open);
-  };
 
   return (
     <Paper elevation={16} style={{ padding: '16px' }}>
@@ -80,46 +74,11 @@ function ProjectItem({ project }) {
         </div>
         {links && links.length > 0 && (
           <div style={{ marginLeft: '2em', marginTop: '0.5em' }}>
-            <Box
-              onClick={handleToggle}
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                cursor: 'pointer',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                backgroundColor: 'darkslategray',
-                padding: '0px 8px',
-                marginTop: '2px',
-                maxWidth: 'fit-content',
-                color: 'white',
-                '&:hover': {
-                  backgroundColor: '#2f4f4f',
-                },
-              }}
-            >
-              <Typography
-                variant='body1'
-                style={{ fontSize: '0.875rem', marginLeft: '0em' }}
-              >
-                Links to Project
-              </Typography>
-              <IconButton
-                style={{
-                  color: 'white',
-                  padding: '4px',
-                  paddingRight: '0px',
-                  marginLeft: '2em',
-                }}
-              >
-                <ExpandMoreIcon
-                  style={{
-                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-                    transition: 'transform 0.3s',
-                  }}
-                />
-              </IconButton>
-            </Box>
+            <DropDownButton
+              open={open}
+              setOpen={setOpen}
+              buttonTitle='Links to Project'
+            />
           </div>
         )}
         <div style={{ marginLeft: '3em' }}>
