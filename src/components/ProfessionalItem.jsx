@@ -7,9 +7,9 @@ const JOBS = [
     title: 'Graduate Research Assistant',
     date: 'Aug, 2023 - Present',
     details: [
-      "Engaged in Dr. Huang Liguo's research team, developing machine learning models to identify logical form of environmental statements in legal context.",
-      'Tasked with developing software tools for data processing and analysis, fine-tuning GPT-3.5 and Gemini models to develop specialized classifier using open-source ML libraries (Keras, spaCy).',
-      'Actively participate in weekly meetings, maintain and share the project code on GitHub, promoting teamwork and knowledge exchange',
+      "Collaborated with Dr. Huang Liguo's research team, innovating machine learning models to identify logical form of environmental statements in legal context.",
+      'Led the development of software tools for data processing and analysis, fine-tuning GPT-3.5 and Gemini models to develop specialized classifier using open-source ML libraries (Keras, spaCy).',
+      'Actively engaged in weekly meetings, maintained and managed project documentation on GitHub, promoting teamwork and knowledge exchange.',
     ],
     company: 'Southern Methodist University',
   },
