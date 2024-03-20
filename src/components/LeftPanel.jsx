@@ -7,7 +7,7 @@ import StickyBox from 'react-sticky-box';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import Portrait from '../../public/portrait.png';
-import PortraitPlaceholder from '../../public/portraitPlaceholder.jpg';
+import PortraitPlaceholder from '../../public/placeholder-portrait.jpg';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
