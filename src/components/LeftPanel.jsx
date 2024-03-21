@@ -5,8 +5,10 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import StickyBox from 'react-sticky-box';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import Portrait from '../../public/portrait.png';
-import PortraitPlaceholder from '../../public/placeholder-portrait.jpg';
+// import Portrait from '../../public/portrait.png';
+// import PortraitPlaceholder from '../../public/placeholder-portrait.jpg';
+import Portrait from '../../public/portrait_2024.jpg';
+import PortraitPlaceholder from '../../public/portrait_2024_placeholder.jpg';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
