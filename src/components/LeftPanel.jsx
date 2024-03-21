@@ -25,10 +25,11 @@ function LeftPanel() {
           xs={4}
           sm={4}
           md={12}
-          style={{
+          sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            width: { xl: '80%' },
           }}
         >
           {/* <img
