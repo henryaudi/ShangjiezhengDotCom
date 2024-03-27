@@ -30,7 +30,6 @@ function LeftPanel() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: { xl: '80%' },
           }}
         >
           {/* <img

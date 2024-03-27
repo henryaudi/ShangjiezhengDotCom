@@ -24,19 +24,34 @@ function HomePage() {
       >
         <PageNav />
       </Box>
-      <Stack spacing={2} sx={{ mt: '1em' }}>
-        <Grid container spacing={2} sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}>
-          <Grid item sm={12} md={3} lg={2}>
-            <LeftPanel />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        <Stack
+          spacing={2}
+          sx={{ mt: '1em', width: '100%', maxWidth: '1920px', mx: 'auto' }}
+        >
+          <Grid
+            container
+            spacing={2}
+            sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}
+          >
+            <Grid item sm={12} md={3} lg={2}>
+              <LeftPanel />
+            </Grid>
+            <Grid item sm={12} md={9} lg={10}>
+              <RightPanel />
+            </Grid>
           </Grid>
-          <Grid item sm={12} md={9} lg={10}>
-            <RightPanel />
-          </Grid>
-        </Grid>
-        <Box width='100%'>
-          <Footer />
-        </Box>
-      </Stack>
+        </Stack>
+      </Box>
+      <Box width='100%'>
+        <Footer />
+      </Box>
       <Box>
         <GoUp />
       </Box>
