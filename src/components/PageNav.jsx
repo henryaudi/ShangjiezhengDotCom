@@ -228,7 +228,9 @@ function ResponsiveAppBar() {
                 '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
               }}
             >
-              <ListItemIcon sx={{ color: 'white' }}>{page.icon}</ListItemIcon>
+              <ListItemIcon sx={{ color: 'white', mr: 1 }}>
+                {page.icon}
+              </ListItemIcon>
               <Typography textAlign='center'>{page.title}</Typography>
             </MenuItem>
           ))}
@@ -240,7 +242,7 @@ function ResponsiveAppBar() {
               '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
             }}
           >
-            <ListItemIcon sx={{ color: 'white' }}>
+            <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <MailIcon />
             </ListItemIcon>
             <Typography textAlign='center'>Email</Typography>
@@ -255,7 +257,7 @@ function ResponsiveAppBar() {
               '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
             }}
           >
-            <ListItemIcon sx={{ color: 'white' }}>
+            <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <LinkedInIcon />
             </ListItemIcon>
             <Typography textAlign='center'>LinkedIn</Typography>
@@ -268,7 +270,7 @@ function ResponsiveAppBar() {
               '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
             }}
           >
-            <ListItemIcon sx={{ color: 'white' }}>
+            <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <GitHubIcon />
             </ListItemIcon>
             <Typography textAlign='center'>GitHub</Typography>
@@ -300,7 +302,7 @@ function ResponsiveAppBar() {
           <Typography
             variant='body2'
             component='p'
-            sx={{ fontWeight: '300', color: 'white' }}
+            sx={{ color: 'white', fonrSize: '0.5rem' }}
           >
             &copy; {new Date().getFullYear()} Shangjie Zheng. All rights
             reserved.
