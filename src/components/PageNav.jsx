@@ -14,21 +14,21 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
-import ContactsIcon from '@mui/icons-material/Contacts';
 import WorkIcon from '@mui/icons-material/Work';
 import ConstructionIcon from '@mui/icons-material/Construction';
-import BuildIcon from '@mui/icons-material/Build';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import MailIcon from '@mui/icons-material/Mail';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Divider from '@mui/material/Divider';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
 const pages = [
-  { title: 'About', icon: <ContactsIcon /> },
+  { title: 'About', icon: <AccountBoxIcon /> },
   { title: 'Experience', icon: <WorkIcon /> },
   { title: 'Skills', icon: <ConstructionIcon /> },
-  { title: 'Projects', icon: <BuildIcon /> },
+  { title: 'Projects', icon: <DeveloperModeIcon /> },
 ];
 
 function ResponsiveAppBar() {
@@ -199,19 +199,24 @@ function ResponsiveAppBar() {
           sx: {
             bgcolor: '#1F3F3F',
             color: 'white',
-            width: 300,
+            width: 250,
           },
         }}
       >
         <Box
           sx={{
-            width: 300,
+            width: 250,
             mt: '2em',
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
             overflowY: 'auto',
             flexGrow: 1,
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            msOverflowStyle: 'none',
           }}
           role='presentation'
           onClick={handleCloseDrawer}
@@ -222,8 +227,8 @@ function ResponsiveAppBar() {
               key={page.title}
               onClick={() => handleScrollToSelection(page.title.toLowerCase())}
               sx={{
-                mt: '0.5em',
-                mb: '0.5em',
+                mt: { sm: '0.5em', xs: '0.125em' },
+                mb: { sm: '0.5em', xs: '0.125em' },
                 color: 'white',
                 '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
               }}
