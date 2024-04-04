@@ -70,14 +70,6 @@ function ResponsiveAppBar() {
     handleCloseNavMenu();
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-    handleCloseDrawer();
-  };
-
   return (
     <>
       <AppBar
