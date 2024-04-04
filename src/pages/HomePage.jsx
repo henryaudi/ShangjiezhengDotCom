@@ -33,7 +33,7 @@ function HomePage() {
       >
         <Stack
           spacing={2}
-          sx={{ mt: '1em', width: '100%', maxWidth: '1920px', mx: 'auto' }}
+          sx={{ mt: '1em', width: '100%', maxWidth: 'xl', mx: 'auto' }}
         >
           <Grid
             container
