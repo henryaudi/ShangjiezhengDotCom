@@ -43,22 +43,6 @@ const projects = [
     ],
   },
   {
-    title: 'Roadside Assistance Application',
-    techStacks: ['JavaScript', 'Node.js', 'Express.js', 'MySQL', 'HTML', 'CSS'],
-    actions: [
-      'I developed this web-based roadside assistance application to realize direct communication between drivers and technicians.',
-      'The application has its intuitive user interface designed and implemented using JavaScript, HTML and CSS, coupled with robust middleware built in Express.js for effective user-database interaction.',
-      'Back-end functionalities and integrated DBMS (MySQL) are engineered on top of Node.js framework ensuring a reliable and efficient software system.',
-    ],
-    iconPath: '/mechanic-garage-svgrepo-com.svg',
-    links: [
-      {
-        title: 'Project repository',
-        url: 'https://github.com/henryaudi/RoadsideAssistance',
-      },
-    ],
-  },
-  {
     title: 'shangjiezheng.com',
     techStacks: [
       'JavaScript',
@@ -78,6 +62,48 @@ const projects = [
       {
         title: 'Project repository',
         url: 'https://github.com/henryaudi/ShangjiezhengDotCom',
+      },
+    ],
+  },
+  {
+    title: 'Tour Tracker API',
+    techStacks: [
+      'JavaScript',
+      'Node.js',
+      'Express.js',
+      'MongoDB/Mongoose',
+      'Postman',
+    ],
+    actions: [
+      'Developed the Tour Tracker API, enabling robust management of tour-related operations, user authentication, and dynamic content updates.',
+      'Implemented secure user authentication and profile management functionalities, enhancing personalized user interactions and data security.',
+      'Engineered a community-driven review system within the API, facilitating user feedback and improving the quality of tour offerings through real-time evaluations.',
+    ],
+    iconPath: '/tour-pin-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Project repository',
+        url: 'https://github.com/henryaudi/TourTracker',
+      },
+      {
+        title: 'API Documentation',
+        url: 'https://documenter.getpostman.com/view/28470041/2sA3Bj8E2s',
+      },
+    ],
+  },
+  {
+    title: 'Roadside Assistance Application',
+    techStacks: ['JavaScript', 'Node.js', 'Express.js', 'MySQL', 'HTML', 'CSS'],
+    actions: [
+      'I developed this web-based roadside assistance application to realize direct communication between drivers and technicians.',
+      'The application has its intuitive user interface designed and implemented using JavaScript, HTML and CSS, coupled with robust middleware built in Express.js for effective user-database interaction.',
+      'Back-end functionalities and integrated DBMS (MySQL) are engineered on top of Node.js framework ensuring a reliable and efficient software system.',
+    ],
+    iconPath: '/mechanic-garage-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Project repository',
+        url: 'https://github.com/henryaudi/RoadsideAssistance',
       },
     ],
   },
