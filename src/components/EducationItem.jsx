@@ -18,7 +18,7 @@ function EducationItem() {
             sm={6}
             sx={{ textAlign: { xs: 'left', sm: 'right' } }}
           >
-            Anticipated Graduation in May, 2024
+            Aug, 2022 - May, 2024
           </Grid>
           <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
             <SchoolIcon />
