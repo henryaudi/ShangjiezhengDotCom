@@ -3,6 +3,8 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import StorageIcon from '@mui/icons-material/Storage';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import PsychologyIcon from '@mui/icons-material/Psychology';
+import MemoryIcon from '@mui/icons-material/Memory';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 
 function Welcome() {
   return (
@@ -14,8 +16,10 @@ function Welcome() {
       </div>
       <div>
         <Typography variant='body1' style={{ marginBottom: '0px' }}>
-          I am a graduate student from Master of Science, Computer Science
-          program in{' '}
+          I am a software developer working with Battery Management Systems{' '}
+          {'('}BMS{')'} with focus on control systems software modeling and
+          development. I earned my Master of Science degree in Computer Science
+          at{' '}
           <a
             href='https://www.smu.edu/lyle'
             target='_blank'
@@ -40,16 +44,21 @@ function Welcome() {
             rel='noopener noreferrer'
             style={{ color: '#27beb4' }}
           >
-            University of Missouri - Kansas City (UMKC),{' '}
+            University of Missouri - Kansas City (UMKC){' '}
           </a>
-          and worked as a Mechanical Engineer in glass manufacturing industry
-          for a year right out of college.
-          <br />
-          I love coding, my technical interests includes:
+          for my undergrad and was a mechanical engineer in glass manufacturing
+          industry for a year right out of college.
           <br />
         </Typography>
       </div>
-      <div style={{ paddingLeft: '2em', marginTop: '0.5em' }}>
+      <div>
+        <Typography variant='body1' style={{ marginBottom: '0px' }}>
+          I always see myself as a passionate advocate for embracing innovative
+          technology to solve real-world challenges. My technical R&D interests
+          include:
+        </Typography>
+      </div>
+      <div style={{ paddingLeft: '2em', marginTop: '0.75em' }}>
         <Interests />
       </div>
       <div>
@@ -71,18 +80,17 @@ function Interests() {
   return (
     <Stack spacing={1}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
+        <MemoryIcon style={{ marginRight: '0.5em' }} /> Embedded Software
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <TerminalIcon style={{ marginRight: '0.5em' }} /> Full-stack Development
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <StorageIcon style={{ marginRight: '0.5em' }} /> Database Management
-        Systems & Development
+        <SmartToyIcon style={{ marginRight: '0.5em' }} /> Machine Learning & NLP
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <SmartToyIcon style={{ marginRight: '0.5em' }} /> Machine Learning
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <PsychologyIcon style={{ marginRight: '0.5em' }} /> Natural Language
-        Processing
+        <SettingsSuggestIcon style={{ marginRight: '0.5em' }} /> Control Systems
+        Software & Model-Based Design
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '-5px' }}>
         <Typography variant='h5'>...</Typography>

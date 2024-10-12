@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Grid, ListItem, Typography, Collapse, List } from '@mui/material';
 
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import ConstructionIcon from '@mui/icons-material/Construction';
 import DropDownButton from './DropDownButton';
 
 function JobItem({ job }) {
   const [open, setOpen] = useState(false);
 
-  const { title, date, details, company } = job;
+  const { title, date, details, company, skills } = job;
 
   return (
     <ListItem component='li' style={{ paddingBottom: '0' }}>
@@ -28,6 +29,18 @@ function JobItem({ job }) {
         <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <ApartmentIcon />
           <span style={{ marginLeft: '8px' }}>{company}</span>
+        </Grid>
+        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
+          <ConstructionIcon />
+          <span
+            style={{
+              marginLeft: '8px',
+            }}
+          >
+            <Typography variant='body2' style={{ marginBottom: '0px' }}>
+              {skills.join(', ')}
+            </Typography>
+          </span>
         </Grid>
         <Grid item xs={12}>
           <DropDownButton
@@ -53,7 +66,6 @@ function JobItem({ job }) {
         <div
           style={{
             width: '100%',
-            borderBottom: '1px solid #ccc',
             margin: '1em 0',
             marginBottom: '0',
             marginTop: '1em',

@@ -15,10 +15,10 @@ function Experience() {
         </Typography>
       </div>
       <div style={{ marginTop: '0.75em' }}>
-        <EducationExperience />
+        <ProfessionalExperience />
       </div>
       <div style={{ marginTop: '0.75em' }}>
-        <ProfessionalExperience />
+        <EducationExperience />
       </div>
     </Stack>
   );
