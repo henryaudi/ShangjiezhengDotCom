@@ -30,18 +30,27 @@ function JobItem({ job }) {
           <ApartmentIcon />
           <span style={{ marginLeft: '8px' }}>{company}</span>
         </Grid>
-        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
-          <ConstructionIcon />
-          <span
-            style={{
-              marginLeft: '8px',
-            }}
-          >
-            <Typography variant='body2' style={{ marginBottom: '0px' }}>
-              {skills.join(', ')}
-            </Typography>
-          </span>
-        </Grid>
+        {skills && (
+          <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
+            <ConstructionIcon />
+            <span
+              style={{
+                marginLeft: '8px',
+              }}
+            >
+              <Typography
+                variant='body2'
+                style={{
+                  marginBottom: '0px',
+                  fontWeight: 200,
+                  fontStyle: 'italic',
+                }}
+              >
+                {skills.join(', ')}
+              </Typography>
+            </span>
+          </Grid>
+        )}
         <Grid item xs={12}>
           <DropDownButton
             open={open}

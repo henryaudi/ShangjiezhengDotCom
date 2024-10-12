@@ -14,9 +14,6 @@ import CodeIcon from '@mui/icons-material/Code';
 import LanIcon from '@mui/icons-material/Lan';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import StorageIcon from '@mui/icons-material/Storage';
-import DevicesIcon from '@mui/icons-material/Devices';
-import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
-import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 
 function SkillsLists() {
   return (
@@ -32,7 +29,7 @@ function SkillsLists() {
                 marginBottom: '0px',
               }}
             >
-              <DevicesIcon sx={{ mr: '0.25em' }} /> Software Development
+              <ViewCarouselIcon sx={{ mr: '0.25em' }} /> Front-end
             </div>
             <List style={{ paddingTop: 0 }}>
               <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
@@ -41,6 +38,37 @@ function SkillsLists() {
                 </ListItemIcon>
                 <ListItemText primary='React' />
               </ListItem>
+              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
+                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
+                  <CustomSvgIcon path='/javascript-155-svgrepo-com.svg' />
+                </ListItemIcon>
+                <ListItemText primary='Vanilla JS' />
+              </ListItem>
+              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
+                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
+                  <CodeIcon />
+                </ListItemIcon>
+                <ListItemText primary='HTML/CSS' />
+              </ListItem>
+            </List>
+          </Stack>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={10} sm={6} md={6} lg={3}>
+        <Paper elevation={12} style={{ padding: '16px' }}>
+          <Stack spacing={1}>
+            <div
+              style={{
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '0px',
+              }}
+            >
+              <LanIcon sx={{ mr: '0.25em' }} /> Back-end
+            </div>
+            <List style={{ paddingTop: 0 }}>
               <ListItem
                 style={{
                   paddingLeft: '1em',
@@ -109,15 +137,9 @@ function SkillsLists() {
               </ListItem>
               <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
                 <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/sqlite-svgrepo-com.svg' />
+                  <CustomSvgIcon path='/bucket-svgrepo-com.svg' />
                 </ListItemIcon>
-                <ListItemText primary='SQLite' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/postgresql-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='PostgreSQL' />
+                <ListItemText primary='Amazon S3' />
               </ListItem>
               <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
                 <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
@@ -141,7 +163,7 @@ function SkillsLists() {
                 marginBottom: '0px',
               }}
             >
-              <DynamicFeedIcon sx={{ mr: '0.25em' }} /> Development Platforms
+              <SmartToyIcon sx={{ mr: '0.25em' }} /> More Cool Stuff
             </div>
             <List style={{ paddingTop: 0 }}>
               <ListItem
@@ -158,76 +180,21 @@ function SkillsLists() {
               </ListItem>
               <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
                 <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/docker-svgrepo-com.svg' />
+                  <CustomSvgIcon path='/python-svgrepo-com.svg' />
                 </ListItemIcon>
-                <ListItemText primary='Docker' />
+                <ListItemText primary='NLTK' />
+              </ListItem>
+              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
+                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
+                  <CustomSvgIcon path='/python-svgrepo-com.svg' />
+                </ListItemIcon>
+                <ListItemText primary='spaCy' />
               </ListItem>
               <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
                 <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
                   <CustomSvgIcon path='/postman-svgrepo-com.svg' />
                 </ListItemIcon>
                 <ListItemText primary='Postman' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/git-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Git/Github' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='st_logo.svg' />
-                </ListItemIcon>
-                <ListItemText primary='STM32Cube' />
-              </ListItem>
-            </List>
-          </Stack>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={10} sm={6} md={6} lg={3}>
-        <Paper elevation={12} style={{ padding: '16px' }}>
-          <Stack spacing={1}>
-            <div
-              style={{
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '0px',
-              }}
-            >
-              <ModelTrainingIcon sx={{ mr: '0.25em' }} /> Model-Based Design
-            </div>
-            <List style={{ paddingTop: 0 }}>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/mathworks-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Simulink' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/mathworks-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Simscape' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/solidworks-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Solidworks' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/ansys-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='ANSYS Fluent' />
-              </ListItem>
-              <ListItem style={{ paddingLeft: '1em', paddingTop: '6.5px' }}>
-                <ListItemIcon style={{ minWidth: '30px', marginRight: '5px' }}>
-                  <CustomSvgIcon path='/autodesk-svgrepo-com.svg' />
-                </ListItemIcon>
-                <ListItemText primary='Auto CAD' />
               </ListItem>
             </List>
           </Stack>

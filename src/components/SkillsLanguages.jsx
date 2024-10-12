@@ -20,7 +20,10 @@ function SkillsLanguages() {
       >
         Languages:
       </Typography>
-      <span>Java, Python, JavaScript, TypeScript, SQL, HTML, CSS, MATLAB</span>
+      <span>
+        Java, Python, C++, Embedded C, JavaScript, TypeScript, SQL, HTML, CSS,
+        MATLAB
+      </span>
     </div>
   );
 }
