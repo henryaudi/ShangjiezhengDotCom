@@ -5,8 +5,13 @@ import SchoolIcon from '@mui/icons-material/School';
 function EducationItem() {
   return (
     <Stack component='ul' spacing={0}>
-      <ListItem component='li'>
-        <Grid container spacing={1} justifyContent='space-between'>
+      <ListItem component='li' sx={{ width: '100%' }}>
+        <Grid
+          container
+          spacing={1}
+          justifyContent='space-between'
+          sx={{ width: { xs: '100%', sm: '100%', md: '90%', lg: '90%' } }}
+        >
           <Grid item size={{ xs: 12, sm: 6 }}>
             <Typography variant='h7' component='h4'>
               Southern Methodist University (SMU)
@@ -14,7 +19,8 @@ function EducationItem() {
           </Grid>
           <Grid
             item
-            size={{ xs: 12, sm: 6 }}
+            xs={12}
+            sm={6}
             sx={{ textAlign: { xs: 'left', sm: 'right' } }}
           >
             Aug, 2022 - May, 2024
@@ -40,8 +46,13 @@ function EducationItem() {
           />
         </Grid>
       </ListItem>
-      <ListItem component='li'>
-        <Grid container spacing={1} justifyContent='space-between'>
+      <ListItem component='li' sx={{ width: '100%' }}>
+        <Grid
+          container
+          spacing={1}
+          justifyContent='space-between'
+          sx={{ width: { xs: '100%', sm: '100%', md: '90%', lg: '90%' } }}
+        >
           <Grid item size={{ xs: 12, sm: 6 }}>
             <Typography variant='h7' component='h4'>
               University of Missouri - Kansas City (UMKC)
