@@ -1,6 +1,16 @@
 import React from 'react';
 import { Paper, Stack, Box } from '@mui/material';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+} from '@mui/lab';
+import { timelineItemClasses } from '@mui/lab/TimelineItem';
 import JobItem from './JobItem';
+import CustomSvgIcon from './CustomSvgIcon';
 
 const JOBS = [
   {
@@ -21,6 +31,7 @@ const JOBS = [
       'Led embedded BMS software/model validation, creating automated test cases for the Controller Area Network (CAN) conforming J1939 standard using CANalyzer, J-Link debugger, ensuring BMS configurability and communication integrity.',
     ],
     company: 'Lion Energy LLC',
+    icon: './lion-logo.svg',
   },
   {
     title: 'Graduate Research Assistant',
@@ -32,6 +43,7 @@ const JOBS = [
       'Actively engaged in weekly meetings, maintained and managed project documentation on GitHub, promoting teamwork and knowledge exchange.',
     ],
     company: 'Southern Methodist University',
+    icon: './smu-mustang.svg',
   },
   {
     title: 'Teaching Assistant (CS3353: Fundamentals of Algorithm)',
@@ -43,6 +55,7 @@ const JOBS = [
       "Enhanced students' academic understanding and progress through effective communication and targeted tutoring.",
     ],
     company: 'Southern Methodist University',
+    icon: './smu-mustang.svg',
   },
   {
     title: 'Mechanical Engineer',
@@ -59,6 +72,7 @@ const JOBS = [
       'Coordinated cross-department projects, reporting progress to the company, and facilitating management decisions.',
     ],
     company: 'Fuyao Glass Illinois Inc.',
+    icon: './fuyao-logo.svg',
   },
 ];
 
@@ -72,13 +86,34 @@ function ProfessionalItem() {
         mt: '0.5em',
       }}
     >
-      <Stack component='ul' spacing={2}>
-        {JOBS.map((job) => (
-          <Paper key={job.title + job.date} elevation={12} sx={{ padding: 1 }}>
-            <JobItem job={job} />
-          </Paper>
+      <Timeline
+        sx={{
+          [`& .${timelineItemClasses.root}:before`]: {
+            flex: 0,
+            padding: 0,
+          },
+        }}
+      >
+        {JOBS.map((job, index) => (
+          <TimelineItem key={job.title + job.date}>
+            <TimelineSeparator>
+              <TimelineDot sx={{ backgroundColor: '#2f4f4f' }}>
+                <CustomSvgIcon
+                  path={job.icon}
+                  style={{
+                    filter:
+                      'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7482%) hue-rotate(180deg) brightness(100%) contrast(100%)',
+                  }}
+                />
+              </TimelineDot>
+              {index !== JOBS.length - 1 && <TimelineConnector />}
+            </TimelineSeparator>
+            <TimelineContent>
+              <JobItem job={job} />
+            </TimelineContent>
+          </TimelineItem>
         ))}
-      </Stack>
+      </Timeline>
     </Box>
   );
 }

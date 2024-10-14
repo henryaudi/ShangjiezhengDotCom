@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CustomSvgIcon({ path }) {
+function CustomSvgIcon({ path, style }) {
   return (
     <img
       src={path}
@@ -9,6 +9,7 @@ function CustomSvgIcon({ path }) {
         width: '24px',
         height: '24px',
         objectFit: 'contain',
+        ...style,
       }}
     />
   );

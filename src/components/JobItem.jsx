@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ListItem, Typography, Collapse, List } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import ApartmentIcon from '@mui/icons-material/Apartment';
 import ConstructionIcon from '@mui/icons-material/Construction';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import DropDownButton from './DropDownButton';
 
 function JobItem({ job }) {
@@ -11,11 +11,18 @@ function JobItem({ job }) {
   const { title, date, details, company, skills } = job;
 
   return (
-    <ListItem component='li' style={{ paddingBottom: '0' }}>
+    <ListItem
+      component='li'
+      style={{
+        padding: '0',
+        marginLeft: '0',
+        margin: '0',
+      }}
+    >
       <Grid container spacing={1} justifyContent='space-between'>
         <Grid item size={{ xs: 12, sm: 6 }}>
-          <Typography variant='h7' component='h4'>
-            {title}
+          <Typography variant='h7' component='h3'>
+            {company}
           </Typography>
         </Grid>
         <Grid
@@ -30,8 +37,8 @@ function JobItem({ job }) {
           size={{ xs: 12 }}
           style={{ display: 'flex', alignItems: 'center' }}
         >
-          <ApartmentIcon />
-          <span style={{ marginLeft: '8px' }}>{company}</span>
+          <PermIdentityIcon />
+          <span style={{ marginLeft: '8px' }}>{title}</span>
         </Grid>
         {skills && (
           <Grid
