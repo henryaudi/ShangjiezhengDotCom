@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Grid, ListItem, Typography, Collapse, List } from '@mui/material';
-
+import { ListItem, Typography, Collapse, List } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DropDownButton from './DropDownButton';
@@ -13,25 +13,32 @@ function JobItem({ job }) {
   return (
     <ListItem component='li' style={{ paddingBottom: '0' }}>
       <Grid container spacing={1} justifyContent='space-between'>
-        <Grid item xs={12} sm={6}>
+        <Grid item size={{ xs: 12, sm: 6 }}>
           <Typography variant='h7' component='h4'>
             {title}
           </Typography>
         </Grid>
         <Grid
           item
-          xs={12}
-          sm={6}
+          size={{ xs: 12, sm: 6 }}
           sx={{ textAlign: { xs: 'left', sm: 'right' } }}
         >
           {date}
         </Grid>
-        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
+        <Grid
+          item
+          size={{ xs: 12 }}
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
           <ApartmentIcon />
           <span style={{ marginLeft: '8px' }}>{company}</span>
         </Grid>
         {skills && (
-          <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
+          <Grid
+            item
+            size={{ xs: 12 }}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
             <ConstructionIcon />
             <span
               style={{
@@ -51,7 +58,7 @@ function JobItem({ job }) {
             </span>
           </Grid>
         )}
-        <Grid item xs={12}>
+        <Grid item size={{ xs: 12 }}>
           <DropDownButton
             open={open}
             setOpen={setOpen}

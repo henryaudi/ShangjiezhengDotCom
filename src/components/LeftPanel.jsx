@@ -1,7 +1,6 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Stack, Typography } from '@mui/material';
-
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import Grid from '@mui/material/Grid2';
 import StickyBox from 'react-sticky-box';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -19,13 +18,11 @@ import ContactInfo from './ContactInfo';
 
 function LeftPanel() {
   return (
-    <StickyBox>
+    <StickyBox offsetTop={10} offsetBottom={10}>
       <Grid container spacing={2} style={{ position: 'sticky' }}>
         <Grid
           item
-          xs={4}
-          sm={4}
-          md={12}
+          size={{ xs: 4, sm: 4, md: 12 }}
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -46,7 +43,7 @@ function LeftPanel() {
             style={{ width: '100%', maxWidth: '100%' }}
           />
         </Grid>
-        <Grid item xs={8} sm={8} md={12}>
+        <Grid item size={{ xs: 8, sm: 8, md: 12 }}>
           <Stack spacing={2}>
             <div
               style={{

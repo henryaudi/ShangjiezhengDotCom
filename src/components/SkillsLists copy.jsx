@@ -1,5 +1,4 @@
 import {
-  Grid,
   List,
   ListItem,
   ListItemIcon,
@@ -7,6 +6,7 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
 import CustomSvgIcon from './CustomSvgIcon';
@@ -18,7 +18,7 @@ import StorageIcon from '@mui/icons-material/Storage';
 function SkillsLists() {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={10} sm={6} md={6} lg={3}>
+      <Grid item size={{ xs: 10, sm: 6, md: 6, lg: 3 }}>
         <Paper elevation={12} style={{ padding: '16px' }}>
           <Stack spacing={1}>
             <div
@@ -55,7 +55,7 @@ function SkillsLists() {
         </Paper>
       </Grid>
 
-      <Grid item xs={10} sm={6} md={6} lg={3}>
+      <Grid item size={{ xs: 10, sm: 6, md: 6, lg: 3 }}>
         <Paper elevation={12} style={{ padding: '16px' }}>
           <Stack spacing={1}>
             <div
@@ -109,7 +109,7 @@ function SkillsLists() {
         </Paper>
       </Grid>
 
-      <Grid item xs={10} sm={6} md={6} lg={3}>
+      <Grid item size={{ xs: 10, sm: 6, md: 6, lg: 3 }}>
         <Paper elevation={12} style={{ padding: '16px' }}>
           <Stack spacing={1}>
             <div
@@ -152,7 +152,7 @@ function SkillsLists() {
         </Paper>
       </Grid>
 
-      <Grid item xs={10} sm={6} md={6} lg={3}>
+      <Grid item size={{ xs: 10, sm: 6, md: 6, lg: 3 }}>
         <Paper elevation={12} style={{ padding: '16px' }}>
           <Stack spacing={1}>
             <div

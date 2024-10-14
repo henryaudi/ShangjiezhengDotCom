@@ -1,4 +1,4 @@
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -11,8 +11,7 @@ function ContactInfo() {
     <Grid container spacing={2}>
       <Grid
         item
-        sm={4}
-        md={12}
+        size={{ sm: 4, md: 12 }}
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton
@@ -33,8 +32,7 @@ function ContactInfo() {
 
       <Grid
         item
-        sm={4}
-        md={12}
+        size={{ sm: 4, md: 12 }}
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton
@@ -57,8 +55,7 @@ function ContactInfo() {
 
       <Grid
         item
-        sm={4}
-        md={12}
+        size={{ sm: 4, md: 12 }}
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton

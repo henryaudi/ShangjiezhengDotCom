@@ -1,4 +1,5 @@
-import { Grid, IconButton, Box, Typography } from '@mui/material';
+import { IconButton, Box, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -19,19 +20,21 @@ function Footer() {
     >
       <Grid
         item
-        xs={12}
-        sm={12}
-        md={4}
+        size={{ xs: 12, sm: 12, md: 4 }}
         order={{ xs: 3, sm: 3, md: 1 }}
         sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}
       >
         <Grid container spacing={1}>
-          <Grid item md={12}>
+          <Grid item size={{ md: 12 }}>
             <Typography variant='h5' component='h3' sx={{ fontWeight: 'bold' }}>
               Shangjie(Henry) Zheng
             </Typography>
           </Grid>
-          <Grid item md={12} style={{ display: 'flex', alignItems: 'center' }}>
+          <Grid
+            item
+            size={{ md: 12 }}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
             <MailIcon style={{ marginRight: '0.5em' }} />
             <Typography
               sx={{
@@ -58,7 +61,11 @@ function Footer() {
               </Box>
             </IconButton>
           </Grid>
-          <Grid item md={12} style={{ display: 'flex', alignItems: 'center' }}>
+          <Grid
+            item
+            size={{ md: 12 }}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
             <PhoneIcon
               style={{
                 marginRight: '0.5em',
@@ -75,7 +82,11 @@ function Footer() {
         </Grid>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={4} order={{ xs: 1, sm: 1, md: 2 }}>
+      <Grid
+        item
+        size={{ xs: 12, sm: 12, md: 4 }}
+        order={{ xs: 1, sm: 1, md: 2 }}
+      >
         <Box
           sx={{
             display: 'flex',
@@ -94,9 +105,7 @@ function Footer() {
 
       <Grid
         item
-        xs={12}
-        sm={12}
-        md={4}
+        size={{ xs: 12, sm: 12, md: 4 }}
         order={{ xs: 2, sm: 2, md: 3 }}
         sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}
       >
@@ -130,7 +139,7 @@ function Footer() {
       </Grid>
       <Grid
         item
-        xs={12}
+        size={{ xs: 12 }}
         order={{ xs: 4, sm: 4, md: 4 }}
         style={{ textAlign: 'center' }}
       >
