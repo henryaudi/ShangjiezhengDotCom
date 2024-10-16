@@ -1,6 +1,8 @@
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid2';
 
+import styles from './HomePage.module.css';
+
 import PageNav from '../components/PageNav';
 import LeftPanel from '../components/LeftPanel';
 import RightPanel from '../components/RightPanel';
