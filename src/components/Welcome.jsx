@@ -16,10 +16,10 @@ function Welcome() {
       </div>
       <div>
         <Typography variant='body1' style={{ marginBottom: '0px' }}>
-          I am a software developer working with Battery Management Systems{' '}
-          {'('}BMS{')'} with focus on control systems software modeling and
-          development. I earned my Master of Science degree in Computer Science
-          at{' '}
+          I am a software developer working with Energy Management System {' ('}
+          EMS {') '}and Battery Management Systems {'('}BMS{')'} with focus on
+          control systems software modeling and development. I earned my Master
+          of Science degree in Computer Science at{' '}
           <a
             href='https://www.smu.edu/lyle'
             target='_blank'

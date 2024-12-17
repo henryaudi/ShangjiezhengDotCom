@@ -14,8 +14,31 @@ import CustomSvgIcon from './CustomSvgIcon';
 
 const JOBS = [
   {
+    title: 'Control Systems Engineer',
+    date: 'Dec, 2024 - Present',
+    skills: [
+      'Embedded C',
+      'Python',
+      'MATLAB',
+      'Simulink',
+      'Simscape',
+      'Inter-Controller Communication',
+      'BMS',
+      'EMS',
+    ],
+    details: [
+      'Researched and optimized embedded software for Energy Management System (EMS) and Battery Management System (BMS).',
+      'Collaboratively engineered and implemented EMS Interface Control Module (ICM), integrating inter-controller communication protocols (CAN, UART, I2C etc.) to enable seamless coordination among DC/DC, BMS, inverters, and extension battery packs.',
+      'Oversaw the complete software lifecycle for ICM, ensuring stable data transmission, scalability and robust system functionality.',
+      'Refined and enhanced existing BMS control system software, conducting cell characterization test to develop an improved state-space model of the battery pack in MATLAB Simulink. Programmatically process test data using Python to support model analysis.',
+      'Collaborated closely with Validation Engineers to define and execute testing procedures, ensuring system performance.',
+    ],
+    company: 'Lion Energy LLC',
+    icon: './lion-logo.svg',
+  },
+  {
     title: 'Software Intern, Control Systems',
-    date: 'Jul, 2024 - Present',
+    date: 'Jul, 2024 - Dec, 2024',
     skills: [
       'Embedded C',
       'MATLAB',

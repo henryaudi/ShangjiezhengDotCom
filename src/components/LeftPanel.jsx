@@ -3,6 +3,7 @@ import { Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import StickyBox from 'react-sticky-box';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Portrait from '../../public/portrait_2024.jpg';
 import PortraitPlaceholder from '../../public/portrait_2024_placeholder.jpg';
@@ -58,6 +59,13 @@ function LeftPanel() {
               filter: isLoaded ? 'blur(0)' : 'blur(10px)',
             }}
           />
+          {/* <LazyLoadImage
+            src={Portrait}
+            placeholderSrc={PortraitPlaceholder}
+            alt='portrait'
+            effect='blur'
+            style={{ width: '100%', maxWidth: '100%' }}
+          /> */}
         </Grid>
         <Grid size={{ xs: 8, sm: 8, md: 12 }}>
           <Stack spacing={2}>
