@@ -118,6 +118,31 @@ function ProjectItem({ project }) {
               ))}
           </Collapse>
         </div>
+        {/* <div>
+          <Timeline
+            sx={{
+              marginLeft: '2em',
+              [`& .${timelineItemClasses.root}:before`]: {
+                flex: 0,
+                padding: 0,
+              },
+            }}
+          >
+            {actions.map((action, index) => (
+              <TimelineItem key={action}>
+                <TimelineSeparator>
+                  <TimelineDot />
+                  
+                  {index < actions.length - 1 && <TimelineConnector />}
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Typography variant='body1'>{action}</Typography>
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        </div> 
+        */}
         <div>
           <List sx={{ pt: '0.25em' }}>
             {actions.map((action, index) => (

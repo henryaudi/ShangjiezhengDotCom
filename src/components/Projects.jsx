@@ -7,6 +7,33 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const projects = [
   {
+    title: 'Shop-Core, High-Concurrency E-Commerce Backend System',
+    techStacks: [
+      'Spring Boot',
+      'MySQL',
+      'Redis',
+      'MyBatis',
+      'Kafka',
+      'JMeter',
+      'Thymeleaf',
+      'Nginx',
+    ],
+    actions: [
+      'Implemented a robust high-concurrency e-commerce backend system, handling up to 100,000 QPS by integrating Redis caching with a MySQL database to boost performance by over 20 times compared to direct database interaction while preserving transaction consistency and reliability.',
+      'Built backend services with Spring Boot, leveraging caching mechanisms to store template variables and pre-load static HTML on remote servers, resulting in a 70% faster page rendering time. Optimized content delivery by rerouting static requests through an Nginx reverse proxy, significantly reducing main server load during peak traffic.',
+      'Integrated Kafka Message Queue for asynchronous data processing, enabling Redis (a single-threaded service) to handle message processing at a controlled pace, mitigating peak load issues and ensuring uninterrupted system performance under high concurrency.',
+      'Employed MyBatis ORM to streamline database operations, abstracting SQL logic into reusable and maintainable components while reducing complexity in handling transactional queries. Configured efficient connection pooling and query caching for optimal database interaction.',
+      'Conducted comprehensive unit testing with JUnit, achieving 76% code coverage by thoroughly validating all critical application logic, including edge cases. Developed additional integration tests, JMeter load tests for end-to-end validation of service components.',
+    ],
+    iconPath: '/network-mapping-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Source Code',
+        url: 'https://github.com/henryaudi/shop-core',
+      },
+    ],
+  },
+  {
     title: 'Accountable Software Systems Adaptive to Changing Legal Context',
     techStacks: ['Python', 'GPT-3.5', 'Gemini', 'spaCy', 'Keras'],
     actions: [
@@ -139,7 +166,9 @@ function Projects() {
           }
         });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+      }
     );
 
     const projectElements = document.querySelectorAll('.project-item');
