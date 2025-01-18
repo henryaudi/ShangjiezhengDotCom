@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import { Stack, Typography, Grow, Paper, Link } from '@mui/material';
+import { Stack, Typography, Grow, Paper } from '@mui/material';
+import { InView } from 'react-intersection-observer';
 
 import ProjectItem from './ProjectItem';
 import CustomSvgIcon from './CustomSvgIcon';
@@ -147,39 +147,7 @@ const projects = [
 ];
 
 function Projects() {
-  const [visibleItems, setVisibleItems] = useState(new Set());
-  const observerRef = useRef(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleItems((prevVisibleItems) => {
-              const newVisibleItems = new Set([
-                ...prevVisibleItems,
-                entry.target.id,
-              ]);
-              observerRef.current.unobserve(entry.target);
-              return newVisibleItems;
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const projectElements = document.querySelectorAll('.project-item');
-    projectElements.forEach((elem) => observerRef.current.observe(elem));
-
-    return () => {
-      projectElements.forEach((elem) => {
-        if (observerRef.current) observerRef.current.unobserve(elem);
-      });
-    };
-  }, []);
+  // We no longer need useEffect or observerRef because react-intersection-observer handles it.
 
   return (
     <Stack spacing={2}>
@@ -193,72 +161,86 @@ function Projects() {
         </Typography>
       </div>
       <Stack spacing={5} style={{ marginTop: '0.75em' }}>
+        {/* Render each project in an <InView> block */}
         {projects.map((project, index) => (
-          <Grow in={visibleItems.has(`project-${index}`)} key={project.title}>
-            <div id={`project-${index}`} className='project-item'>
-              <ProjectItem project={project} />
-            </div>
-          </Grow>
+          <InView key={project.title} threshold={0.1} triggerOnce>
+            {({ inView, ref }) => (
+              <Grow in={inView}>
+                <div ref={ref} id={`project-${index}`} className='project-item'>
+                  <ProjectItem project={project} />
+                </div>
+              </Grow>
+            )}
+          </InView>
         ))}
-        <Grow in={visibleItems.has('moreprojects')} key='moreprojects'>
-          <div id={'moreprojects'} className='project-item'>
-            <Paper elevation={16} sx={{ padding: '16px' }}>
-              <div
-                style={{
-                  fontWeight: 'bold',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: 'bold',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
+
+        {/* "More projects" block at the bottom */}
+        <InView key='moreprojects' threshold={0} triggerOnce>
+          {({ inView, ref }) => (
+            <Grow in={inView}>
+              <div ref={ref} id='moreprojects' className='project-item'>
+                <Paper elevation={16} sx={{ padding: '16px' }}>
                   <div
                     style={{
-                      minWidth: '30px',
-                      marginRight: '0.5em',
+                      fontWeight: 'bold',
                       display: 'flex',
-                      justifyContent: 'center',
                       alignItems: 'center',
                     }}
                   >
-                    <CustomSvgIcon path='/github-svgrepo-com.svg' />
-                  </div>
-                  <Typography variant='h6' component='h4'>
-                    <span
-                      style={{ alignItems: 'center', display: 'inlineFlex' }}
+                    <div
+                      style={{
+                        fontWeight: 'bold',
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
                     >
-                      For more interesting projects, visit my
-                      <a
-                        href='https://github.com/henryaudi'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                      <div
                         style={{
-                          textDecoration: 'underline',
+                          minWidth: '30px',
+                          marginRight: '0.5em',
+                          display: 'flex',
+                          justifyContent: 'center',
                           alignItems: 'center',
-                          color: 'rgb(39, 190, 180)',
                         }}
                       >
-                        <OpenInNewIcon
-                          sx={{
-                            color: 'rgb(39, 190, 180)',
-                            marginLeft: '4px',
-                            verticalAlign: 'middle',
+                        <CustomSvgIcon path='/github-svgrepo-com.svg' />
+                      </div>
+                      <Typography variant='h6' component='h4'>
+                        <span
+                          style={{
+                            alignItems: 'center',
+                            display: 'inlineFlex',
                           }}
-                        />
-                        GitHub!
-                      </a>
-                    </span>
-                  </Typography>
-                </div>
+                        >
+                          For more interesting projects, visit my
+                          <a
+                            href='https://github.com/henryaudi'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            style={{
+                              textDecoration: 'underline',
+                              alignItems: 'center',
+                              color: 'rgb(39, 190, 180)',
+                            }}
+                          >
+                            <OpenInNewIcon
+                              sx={{
+                                color: 'rgb(39, 190, 180)',
+                                marginLeft: '4px',
+                                verticalAlign: 'middle',
+                              }}
+                            />
+                            GitHub!
+                          </a>
+                        </span>
+                      </Typography>
+                    </div>
+                  </div>
+                </Paper>
               </div>
-            </Paper>
-          </div>
-        </Grow>
+            </Grow>
+          )}
+        </InView>
       </Stack>
     </Stack>
   );
