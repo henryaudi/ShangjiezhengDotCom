@@ -4,6 +4,7 @@ import { InView } from 'react-intersection-observer';
 import ProjectItem from './ProjectItem';
 import CustomSvgIcon from './CustomSvgIcon';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { useRef } from 'react';
 
 const projects = [
   {
@@ -147,7 +148,7 @@ const projects = [
 ];
 
 function Projects() {
-  // We no longer need useEffect or observerRef because react-intersection-observer handles it.
+  const rootRef = useRef(null);
 
   return (
     <Stack spacing={2}>
@@ -163,9 +164,21 @@ function Projects() {
       <Stack spacing={5} style={{ marginTop: '0.75em' }}>
         {/* Render each project in an <InView> block */}
         {projects.map((project, index) => (
-          <InView key={project.title} threshold={0.1} triggerOnce>
+          <InView
+            key={project.title}
+            root={rootRef.current}
+            rootMargin='200px 0px 200px 0px'
+            threshold={0}
+            triggerOnce
+          >
             {({ inView, ref }) => (
-              <Grow in={inView}>
+              <Grow
+                in={inView}
+                timeout={{
+                  enter: 1000, // 1 second for entering
+                  exit: 500, // 0.5 seconds for exiting
+                }}
+              >
                 <div ref={ref} id={`project-${index}`} className='project-item'>
                   <ProjectItem project={project} />
                 </div>

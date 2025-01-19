@@ -1,10 +1,9 @@
 import { Typography, Stack, Box } from '@mui/material';
 import TerminalIcon from '@mui/icons-material/Terminal';
-import StorageIcon from '@mui/icons-material/Storage';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-import PsychologyIcon from '@mui/icons-material/Psychology';
 import MemoryIcon from '@mui/icons-material/Memory';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import LanIcon from '@mui/icons-material/Lan';
 
 function Welcome() {
   return (
@@ -80,18 +79,19 @@ function Interests() {
   return (
     <Stack spacing={1}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <MemoryIcon style={{ marginRight: '0.5em' }} /> Embedded Software
+        <LanIcon style={{ marginRight: '0.5em' }} /> Distributed Systems & Data
+        Streaming
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <TerminalIcon style={{ marginRight: '0.5em' }} /> Full-stack Development
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <SmartToyIcon style={{ marginRight: '0.5em' }} /> Machine Learning & NLP
+        <MemoryIcon style={{ marginRight: '0.5em' }} /> Embedded Software
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <SettingsSuggestIcon style={{ marginRight: '0.5em' }} /> Control Systems
-        Software & Model-Based Design
+        <SmartToyIcon style={{ marginRight: '0.5em' }} /> Machine Learning & NLP
       </div>
+
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '-5px' }}>
         <Typography variant='h5'>...</Typography>
       </div>

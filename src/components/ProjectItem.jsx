@@ -8,6 +8,7 @@ import {
   Paper,
   Stack,
   Typography,
+  Chip,
 } from '@mui/material';
 
 import CustomSvgIcon from './CustomSvgIcon';
@@ -51,17 +52,37 @@ function ProjectItem({ project }) {
             display: 'flex',
             alignItems: 'center',
             marginLeft: '2em',
+            marginTop: '0.5em',
+            marginBottom: '0.25em',
             flexWrap: 'wrap',
+            rowGap: '0.25em',
           }}
         >
-          <Typography
+          {/* <Typography
             style={{ marginRight: '0.25em', fontWeight: 'bold' }}
             variant='subtitle1'
             component='p'
           >
             Tech Stacks:
-          </Typography>
-          {techStacks.map((techStack, index) => (
+          </Typography> */}
+          {techStacks.map((tech) => (
+            <Chip
+              key={tech}
+              label={tech}
+              color='primary'
+              size='small'
+              sx={{
+                mx: '0.25em',
+                backgroundColor: 'grey.200',
+                color: 'grey.800',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: 'grey.300',
+                },
+              }}
+            />
+          ))}
+          {/* {techStacks.map((techStack, index) => (
             <Typography
               style={{ marginRight: '0.5em' }}
               variant='subtitle1'
@@ -70,7 +91,7 @@ function ProjectItem({ project }) {
             >
               {index === techStacks.length - 1 ? techStack : techStack + ','}
             </Typography>
-          ))}
+          ))} */}
         </div>
         {links && links.length > 0 && (
           <div style={{ marginLeft: '2em', marginTop: '0.5em' }}>
@@ -118,31 +139,6 @@ function ProjectItem({ project }) {
               ))}
           </Collapse>
         </div>
-        {/* <div>
-          <Timeline
-            sx={{
-              marginLeft: '2em',
-              [`& .${timelineItemClasses.root}:before`]: {
-                flex: 0,
-                padding: 0,
-              },
-            }}
-          >
-            {actions.map((action, index) => (
-              <TimelineItem key={action}>
-                <TimelineSeparator>
-                  <TimelineDot />
-                  
-                  {index < actions.length - 1 && <TimelineConnector />}
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Typography variant='body1'>{action}</Typography>
-                </TimelineContent>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        </div> 
-        */}
         <div>
           <List sx={{ pt: '0.25em' }}>
             {actions.map((action, index) => (
