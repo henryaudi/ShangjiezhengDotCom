@@ -48,7 +48,7 @@ function LeftPanel() {
             alignItems: 'center',
           }}
         >
-          <img
+          {/* <img
             ref={imgRef}
             src={isLoaded ? Portrait : PortraitPlaceholder}
             alt='portrait'
@@ -58,14 +58,19 @@ function LeftPanel() {
               transition: 'filter 0.3s ease-in-out',
               filter: isLoaded ? 'blur(0)' : 'blur(10px)',
             }}
-          />
-          {/* <LazyLoadImage
+          /> */}
+          <LazyLoadImage
             src={Portrait}
             placeholderSrc={PortraitPlaceholder}
             alt='portrait'
             effect='blur'
+            width={1200} 
             style={{ width: '100%', maxWidth: '100%' }}
-          /> */}
+
+            // loading="eager"
+            // decoding="sync"
+            // fetchPriority="high"
+          />
         </Grid>
         <Grid size={{ xs: 8, sm: 8, md: 12 }}>
           <Stack spacing={2}>
