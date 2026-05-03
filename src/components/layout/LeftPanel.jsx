@@ -17,9 +17,9 @@ function LeftPanel() {
 
   return (
     <StickyBox offsetTop={10} offsetBottom={10}>
-      <Grid container spacing={2} style={{ position: 'sticky' }}>
+      <Grid container spacing={2} sx={{ position: 'sticky' }}>
         <Grid
-          size={{ xs: 5, sm: 5, md: 12 }}
+          size={{ xs: 4, sm: 4, md: 12 }}
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -32,8 +32,10 @@ function LeftPanel() {
               aspectRatio: '1',
               position: 'relative',
               borderRadius: 1,
-              overflow: 'hidden',
-              backgroundColor: 'transparent',
+              // Only clip the corners once the full image has loaded — while
+              // we're showing the blurred placeholder we want it to feather
+              // out softly rather than sit inside a hard rectangle.
+              overflow: fullLoaded ? 'hidden' : 'visible',
             }}
           >
             <img
@@ -47,10 +49,17 @@ function LeftPanel() {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                filter: 'blur(14px)',
-                transform: 'scale(1.06)',
-                opacity: placeholderLoaded ? 1 : 0,
-                transition: 'opacity 0.3s ease',
+                filter: 'blur(22px)',
+                transform: 'scale(1.1)',
+                opacity: placeholderLoaded && !fullLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease',
+                // Soft radial fade so the placeholder doesn't appear as a
+                // sharp blurred rectangle while loading.
+                maskImage:
+                  'radial-gradient(ellipse at center, black 50%, transparent 92%)',
+                WebkitMaskImage:
+                  'radial-gradient(ellipse at center, black 50%, transparent 92%)',
+                pointerEvents: 'none',
               }}
             />
             {placeholderLoaded && (
@@ -71,18 +80,14 @@ function LeftPanel() {
             )}
           </Box>
         </Grid>
-        <Grid size={{ xs: 7, sm: 7, md: 12 }}>
-          <Stack spacing={2}>
-            <div
-              style={{
-                borderBottom: '1px solid grey',
-                paddingBottom: '8px',
-              }}
-            >
+
+        <Grid size={{ xs: 8, sm: 8, md: 12 }}>
+          <Stack spacing={0}>
+            <Box sx={{ borderBottom: '1px solid grey', pb: '10px' }}>
               <Typography
                 variant='h5'
                 component='h2'
-                style={{ fontWeight: 'bold' }}
+                sx={{ fontWeight: 'bold' }}
               >
                 {profile.name}
                 <br />
@@ -90,7 +95,7 @@ function LeftPanel() {
               </Typography>
               <Typography
                 variant='body2'
-                sx={{ mt: '10px', lineHeight: '1.6' }}
+                sx={{ mt: '10px', lineHeight: 1.6 }}
               >
                 MS. Computer Science
                 <br />
@@ -98,10 +103,8 @@ function LeftPanel() {
                 <br />
                 Southern Methodist University
               </Typography>
-            </div>
-            <div style={{ marginTop: '0' }}>
-              <ContactInfo />
-            </div>
+            </Box>
+            <ContactInfo />
           </Stack>
         </Grid>
       </Grid>

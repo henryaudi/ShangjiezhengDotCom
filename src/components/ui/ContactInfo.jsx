@@ -1,84 +1,68 @@
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 import { profile } from '../../data/profile';
+
+const contacts = [
+  {
+    label: 'Email',
+    icon: EmailIcon,
+    href: `mailto:${profile.email}`,
+    target: '_self',
+  },
+  {
+    label: 'LinkedIn',
+    icon: LinkedInIcon,
+    href: profile.linkedin,
+    target: '_blank',
+  },
+  {
+    label: 'GitHub',
+    icon: GitHubIcon,
+    href: profile.github,
+    target: '_blank',
+  },
+  {
+    label: 'Resume',
+    icon: DescriptionIcon,
+    href: profile.resumeUrl,
+    target: '_blank',
+  },
+];
 
 function ContactInfo() {
   return (
     <Grid container spacing={2}>
-      <Grid
-        item
-        size={{ sm: 4, md: 12 }}
-        style={{ display: 'flex', alignItems: 'center' }}
-      >
-        <IconButton
-          onClick={() => window.open(`mailto:${profile.email}`)}
-          sx={{
-            minWidth: 44,
-            minHeight: 44,
-            '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              borderRadius: '0',
-            },
-          }}
+      {contacts.map(({ label, icon: Icon, href, target }) => (
+        <Grid
+          key={label}
+          size={{ sm: 3, md: 12 }}
+          sx={{ display: 'flex', alignItems: 'center' }}
         >
-          <EmailIcon />
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Typography style={{ color: 'black' }}>Email</Typography>
-          </Box>
-        </IconButton>
-      </Grid>
-
-      <Grid
-        item
-        size={{ sm: 4, md: 12 }}
-        style={{ display: 'flex', alignItems: 'center' }}
-      >
-        <IconButton
-          onClick={() => window.open(profile.linkedin, '_blank')}
-          sx={{
-            minWidth: 44,
-            minHeight: 44,
-            '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              borderRadius: '0',
-            },
-          }}
-        >
-          <LinkedInIcon />
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Typography style={{ color: 'black' }}>LinkedIn</Typography>
-          </Box>
-        </IconButton>
-      </Grid>
-
-      <Grid
-        item
-        size={{ sm: 4, md: 12 }}
-        style={{ display: 'flex', alignItems: 'center' }}
-      >
-        <IconButton
-          onClick={() => window.open(profile.github, '_blank')}
-          sx={{
-            minWidth: 44,
-            minHeight: 44,
-            '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              borderRadius: '0',
-            },
-          }}
-        >
-          <GitHubIcon />
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Typography style={{ color: 'black' }}>GitHub</Typography>
-          </Box>
-        </IconButton>
-      </Grid>
+          <IconButton
+            onClick={() => window.open(href, target)}
+            sx={{
+              minWidth: 44,
+              minHeight: 44,
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                borderRadius: 0,
+              },
+            }}
+          >
+            <Icon />
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 1 }}>
+              <Typography sx={{ color: 'black' }}>{label}</Typography>
+            </Box>
+          </IconButton>
+        </Grid>
+      ))}
     </Grid>
   );
 }

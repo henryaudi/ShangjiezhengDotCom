@@ -40,10 +40,10 @@ function HomePage() {
             spacing={2}
             sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}
           >
-            <Grid size={{ sm: 12, md: 3, lg: 2 }}>
+            <Grid size={{ xs: 12, sm: 12, md: 3, lg: 2 }}>
               <LeftPanel />
             </Grid>
-            <Grid size={{ sm: 12, md: 9, lg: 10 }}>
+            <Grid size={{ xs: 12, sm: 12, md: 9, lg: 10 }}>
               <RightPanel />
             </Grid>
           </Grid>
