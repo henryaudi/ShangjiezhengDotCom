@@ -6,6 +6,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 
+import { profile } from '../../data/profile';
+
 function ContactInfo() {
   return (
     <Grid container spacing={2}>
@@ -15,8 +17,10 @@ function ContactInfo() {
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton
-          onClick={() => window.open('mailto:shangjiehz@gmail.com')}
+          onClick={() => window.open(`mailto:${profile.email}`)}
           sx={{
+            minWidth: 44,
+            minHeight: 44,
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
               borderRadius: '0',
@@ -36,10 +40,10 @@ function ContactInfo() {
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton
-          onClick={() =>
-            window.open('https://www.linkedin.com/in/shangjiezheng', '_blank')
-          }
+          onClick={() => window.open(profile.linkedin, '_blank')}
           sx={{
+            minWidth: 44,
+            minHeight: 44,
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
               borderRadius: '0',
@@ -59,8 +63,10 @@ function ContactInfo() {
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <IconButton
-          onClick={() => window.open('https://github.com/henryaudi', '_blank')}
+          onClick={() => window.open(profile.github, '_blank')}
           sx={{
+            minWidth: 44,
+            minHeight: 44,
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
               borderRadius: '0',

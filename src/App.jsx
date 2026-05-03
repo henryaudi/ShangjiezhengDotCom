@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
-import SpinnerFull from './components/SpinnerFull';
+import SpinnerFull from './components/ui/SpinnerFull';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 

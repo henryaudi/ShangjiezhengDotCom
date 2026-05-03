@@ -1,3 +1,6 @@
+# Claude worktrees and metadata
+.claude/
+
 # Logs
 logs
 *.log

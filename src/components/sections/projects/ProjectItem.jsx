@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import {
   Collapse,
   Link,
@@ -11,10 +11,11 @@ import {
   Chip,
 } from '@mui/material';
 
-import CustomSvgIcon from './CustomSvgIcon';
+import CustomSvgIcon from '../../ui/CustomSvgIcon';
+import DropDownButton from '../../ui/DropDownButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import DropDownButton from './DropDownButton';
+import { colors } from '../../../theme/colors';
 
 function ProjectItem({ project }) {
   const { title, techStacks, actions, iconPath, links } = project;
@@ -58,13 +59,6 @@ function ProjectItem({ project }) {
             rowGap: '0.25em',
           }}
         >
-          {/* <Typography
-            style={{ marginRight: '0.25em', fontWeight: 'bold' }}
-            variant='subtitle1'
-            component='p'
-          >
-            Tech Stacks:
-          </Typography> */}
           {techStacks.map((tech) => (
             <Chip
               key={tech}
@@ -73,33 +67,19 @@ function ProjectItem({ project }) {
               size='small'
               sx={{
                 mx: '0.25em',
-                backgroundColor: 'grey.200',
-                color: 'grey.800',
+                backgroundColor: colors.chipBg,
+                color: colors.chipText,
                 fontWeight: 'bold',
                 '&:hover': {
-                  backgroundColor: 'grey.300',
+                  backgroundColor: colors.chipBgHover,
                 },
               }}
             />
           ))}
-          {/* {techStacks.map((techStack, index) => (
-            <Typography
-              style={{ marginRight: '0.5em' }}
-              variant='subtitle1'
-              component='p'
-              key={techStack}
-            >
-              {index === techStacks.length - 1 ? techStack : techStack + ','}
-            </Typography>
-          ))} */}
         </div>
         {links && links.length > 0 && (
           <div style={{ marginLeft: '2em', marginTop: '0.5em' }}>
-            <DropDownButton
-              open={open}
-              setOpen={setOpen}
-              buttonTitle='Links to Project'
-            />
+            <DropDownButton open={open} setOpen={setOpen} buttonTitle='Links to Project' />
           </div>
         )}
         <div style={{ marginLeft: '3em' }}>
@@ -121,17 +101,11 @@ function ProjectItem({ project }) {
                       alignItems: 'center',
                       gap: '4px',
                       textDecoration: 'underline',
-                      '&:hover': {
-                        color: 'rgb(39, 190, 180)',
-                      },
+                      '&:hover': { color: colors.accent },
                     }}
                   >
                     <OpenInNewIcon
-                      sx={{
-                        marginLeft: '4px',
-                        marginRight: '4px',
-                        verticalAlign: 'middle',
-                      }}
+                      sx={{ marginLeft: '4px', marginRight: '4px', verticalAlign: 'middle' }}
                     />
                     {link.title}
                   </Link>
@@ -141,7 +115,7 @@ function ProjectItem({ project }) {
         </div>
         <div>
           <List sx={{ pt: '0.25em' }}>
-            {actions.map((action, index) => (
+            {actions.map((action) => (
               <ListItem key={action} sx={{ mt: '0.25em' }}>
                 <ArrowForwardIosIcon />
                 <div style={{ marginLeft: '0.25em' }}>{action}</div>

@@ -1,8 +1,8 @@
 import { Stack } from '@mui/material';
-import Welcome from './Welcome';
-import Experience from './Experience';
-import Skills from './Skills';
-import Projects from './Projects';
+import Welcome from '../sections/about/Welcome';
+import Experience from '../sections/experience/Experience';
+import Skills from '../sections/skills/Skills';
+import Projects from '../sections/projects/Projects';
 
 function RightPanel() {
   return (

@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
-
 import TranslateIcon from '@mui/icons-material/Translate';
+
+import { programmingLanguages } from '../../../data/skills';
+import { colors } from '../../../theme/colors';
 
 function SkillsLanguages() {
   return (
@@ -9,7 +11,7 @@ function SkillsLanguages() {
         display: 'flex',
         alignItems: 'center',
         paddingBottom: '1em',
-        borderBottom: '1px solid #ccc',
+        borderBottom: `1px solid ${colors.border}`,
       }}
     >
       <TranslateIcon />
@@ -20,10 +22,7 @@ function SkillsLanguages() {
       >
         Languages:
       </Typography>
-      <span>
-        Java, Python, C++, Embedded C, JavaScript, TypeScript, SQL, HTML, CSS,
-        MATLAB
-      </span>
+      <span>{programmingLanguages.join(', ')}</span>
     </div>
   );
 }

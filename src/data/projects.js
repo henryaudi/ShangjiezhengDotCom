@@ -1,12 +1,33 @@
-import { Stack, Typography, Grow, Paper } from '@mui/material';
-import { InView } from 'react-intersection-observer';
-
-import ProjectItem from './ProjectItem';
-import CustomSvgIcon from './CustomSvgIcon';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { useRef } from 'react';
-
-const projects = [
+export const projects = [
+  {
+    title: 'Riivr App',
+    techStacks: [
+      'Node.js',
+      'TypeScript',
+      'MongoDB',
+      'Redis',
+      'BullMQ',
+      'AWS',
+      'EC2',
+      'S3',
+      'ElastiCache',
+      'Terraform',
+    ],
+    actions: [
+      'Architected a domain-driven backend spanning 9 bounded contexts, 60+ REST endpoints, and 10 persistence models, implementing JWT-based authentication within a structured request lifecycle (routes → middleware → controllers → services) and enforcing modular boundaries with feature-scoped validation layers to ensure maintainability and scalability.',
+      'Designed a cache-first Redis-over-MongoDB architecture to reduce hot-path latency and alleviate database pressure, maintaining write-through consistency while leveraging BullMQ-backed asynchronous job queues to decouple non-blocking workflows and improve overall system responsiveness.',
+      'Engineered a system-wide real-time event layer using Socket.IO to enable bidirectional client-server communication, event broadcasting, and consistent state synchronization across chat, posts, reactions, and notifications.',
+      'Provisioned production-grade AWS infrastructure using Terraform across 15+ resources, including multi-AZ networking, ALB with HTTPS termination, private EC2 instances, NAT gateways, Bastion access, and ElastiCache for distributed caching.',
+      'Applied Test-Driven Development (TDD) with Jest to validate controller behavior, enforce authentication boundaries, and ensure reliable integration between caching and persistence layers.',
+    ],
+    iconPath: '/river-svgrepo-com.svg',
+    links: [
+      {
+        title: 'Github Repo',
+        url: 'https://github.com/henryaudi/riivr-backend.git',
+      },
+    ],
+  },
   {
     title: 'Shop-Core, High-Concurrency E-Commerce Backend System',
     techStacks: [
@@ -28,10 +49,7 @@ const projects = [
     ],
     iconPath: '/network-mapping-svgrepo-com.svg',
     links: [
-      {
-        title: 'Source Code',
-        url: 'https://github.com/henryaudi/shop-core',
-      },
+      { title: 'Source Code', url: 'https://github.com/henryaudi/shop-core' },
     ],
   },
   {
@@ -146,117 +164,3 @@ const projects = [
     iconPath: '/drone-svgrepo-com.svg',
   },
 ];
-
-function Projects() {
-  const rootRef = useRef(null);
-
-  return (
-    <Stack spacing={2}>
-      <div>
-        <Typography
-          variant='h5'
-          component='h2'
-          style={{ textDecoration: 'underline', fontWeight: 'bold' }}
-        >
-          Projects
-        </Typography>
-      </div>
-      <Stack spacing={5} style={{ marginTop: '0.75em' }}>
-        {/* Render each project in an <InView> block */}
-        {projects.map((project, index) => (
-          <InView
-            key={project.title}
-            root={rootRef.current}
-            rootMargin='200px 0px 200px 0px'
-            threshold={0}
-            triggerOnce
-          >
-            {({ inView, ref }) => (
-              <Grow
-                in={inView}
-                timeout={{
-                  enter: 1000, // 1 second for entering
-                  exit: 500, // 0.5 seconds for exiting
-                }}
-              >
-                <div ref={ref} id={`project-${index}`} className='project-item'>
-                  <ProjectItem project={project} />
-                </div>
-              </Grow>
-            )}
-          </InView>
-        ))}
-
-        {/* "More projects" block at the bottom */}
-        <InView key='moreprojects' threshold={0} triggerOnce>
-          {({ inView, ref }) => (
-            <Grow in={inView}>
-              <div ref={ref} id='moreprojects' className='project-item'>
-                <Paper elevation={16} sx={{ padding: '16px' }}>
-                  <div
-                    style={{
-                      fontWeight: 'bold',
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontWeight: 'bold',
-                        display: 'flex',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <div
-                        style={{
-                          minWidth: '30px',
-                          marginRight: '0.5em',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <CustomSvgIcon path='/github-svgrepo-com.svg' />
-                      </div>
-                      <Typography variant='h6' component='h4'>
-                        <span
-                          style={{
-                            alignItems: 'center',
-                            display: 'inlineFlex',
-                          }}
-                        >
-                          For more interesting projects, visit my
-                          <a
-                            href='https://github.com/henryaudi'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            style={{
-                              textDecoration: 'underline',
-                              alignItems: 'center',
-                              color: 'rgb(39, 190, 180)',
-                            }}
-                          >
-                            <OpenInNewIcon
-                              sx={{
-                                color: 'rgb(39, 190, 180)',
-                                marginLeft: '4px',
-                                verticalAlign: 'middle',
-                              }}
-                            />
-                            GitHub!
-                          </a>
-                        </span>
-                      </Typography>
-                    </div>
-                  </div>
-                </Paper>
-              </div>
-            </Grow>
-          )}
-        </InView>
-      </Stack>
-    </Stack>
-  );
-}
-
-export default Projects;

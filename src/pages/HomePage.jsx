@@ -1,14 +1,12 @@
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid2';
 
-import styles from './HomePage.module.css';
-
-import PageNav from '../components/PageNav';
-import LeftPanel from '../components/LeftPanel';
-import RightPanel from '../components/RightPanel';
-import Footer from '../components/Footer';
+import PageNav from '../components/layout/PageNav';
+import LeftPanel from '../components/layout/LeftPanel';
+import RightPanel from '../components/layout/RightPanel';
+import Footer from '../components/layout/Footer';
 import { Box } from '@mui/material';
-import GoUp from '../components/GoUp';
+import GoUp from '../components/ui/GoUp';
 
 function HomePage() {
   return (

@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { ListItem, Typography, Collapse, List } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import DropDownButton from './DropDownButton';
+import DropDownButton from '../../ui/DropDownButton';
 
 function JobItem({ job }) {
   const [open, setOpen] = useState(false);
@@ -13,11 +14,7 @@ function JobItem({ job }) {
   return (
     <ListItem
       component='li'
-      style={{
-        padding: '0',
-        marginLeft: '0',
-        margin: '0',
-      }}
+      style={{ padding: '0', marginLeft: '0', margin: '0' }}
     >
       <Grid container spacing={1} justifyContent='space-between'>
         <Grid item size={{ xs: 12, sm: 6 }}>
@@ -47,11 +44,7 @@ function JobItem({ job }) {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <ConstructionIcon />
-            <span
-              style={{
-                marginLeft: '8px',
-              }}
-            >
+            <span style={{ marginLeft: '8px' }}>
               <Typography
                 variant='body2'
                 style={{
@@ -66,17 +59,8 @@ function JobItem({ job }) {
           </Grid>
         )}
         <Grid item size={{ xs: 12 }}>
-          <DropDownButton
-            open={open}
-            setOpen={setOpen}
-            buttonTitle='Job Details'
-          />
-          <Collapse
-            in={open}
-            timeout='auto'
-            unmountOnExit
-            style={{ marginLeft: '2em' }}
-          >
+          <DropDownButton open={open} setOpen={setOpen} buttonTitle='Job Details' />
+          <Collapse in={open} timeout='auto' unmountOnExit style={{ marginLeft: '2em' }}>
             <List component='div' disablePadding>
               {details.map((detail, index) => (
                 <li key={index} style={{ marginTop: '0.5em' }}>

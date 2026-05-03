@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material';
-
 import SkillsLanguages from './SkillsLanguages';
 import SkillsLists from './SkillsLists';
+import { colors } from '../../../theme/colors';
 
 function Skills() {
   return (
@@ -10,7 +10,12 @@ function Skills() {
         <Typography
           variant='h5'
           component='h2'
-          style={{ textDecoration: 'underline', fontWeight: 'bold' }}
+          sx={{
+            fontWeight: 'bold',
+            borderLeft: `4px solid ${colors.accent}`,
+            paddingLeft: '0.6em',
+            lineHeight: 1.3,
+          }}
         >
           Skills
         </Typography>

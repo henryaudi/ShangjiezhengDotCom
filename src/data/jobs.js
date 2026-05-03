@@ -1,22 +1,29 @@
-import React from 'react';
-import { Box, Grow } from '@mui/material';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from '@mui/lab';
-import { timelineItemClasses } from '@mui/lab/TimelineItem';
-import { useInView } from 'react-intersection-observer';
-import JobItem from './JobItem';
-import CustomSvgIcon from './CustomSvgIcon';
-
-const JOBS = [
+export const jobs = [
+  {
+    title: 'Embedded Systems Engineer',
+    date: 'Jan, 2026 - Present',
+    skills: [
+      'Embedded C',
+      'Zephyr RTOS',
+      'Python',
+      'MATLAB',
+      'Simulink',
+      'Simscape',
+      'J1939',
+      'CAN',
+    ],
+    details: [
+      'Architected and developed a modular embedded application layer in C on Zephyr RTOS for Energy Storage Systems (ESS), enabling system-level coordination and control of up to six interconnected power distribution and expansion battery units operating as a unified energy platform.',
+      'Designed and implemented a distributed CAN (J1939) communication framework serving as the core system messaging backbone across inverter, EMS, BMS, MPPT, DC-DC, and power distribution domains, supporting peer-to-peer communication, broadcast telemetry, multipacket transport, and OTA firmware update workflows.',
+      'Built real-time task orchestration and fault management mechanisms using deterministic scheduling principles, improving operational reliability and ensuring safe coordination between energy conversion, battery management, and protection subsystems.',
+      'Led integration of production firmware modules into SIL/HIL validation environments using Simulink-based test harnesses, enabling closed-loop simulation, hardware abstraction, and repeatable regression testing for real-time control software prior to hardware deployment.',
+    ],
+    company: 'Lion Energy LLC',
+    icon: '/lion-logo.svg',
+  },
   {
     title: 'Control Systems Engineer',
-    date: 'Dec, 2024 - Present',
+    date: 'Dec, 2024 - Jan, 2026',
     skills: [
       'Embedded C',
       'Python',
@@ -35,7 +42,7 @@ const JOBS = [
       'Collaborated closely with Validation Engineers to define and execute testing procedures, ensuring system performance.',
     ],
     company: 'Lion Energy LLC',
-    icon: './lion-logo.svg',
+    icon: '/lion-logo.svg',
   },
   {
     title: 'Software Intern, Control Systems',
@@ -50,12 +57,12 @@ const JOBS = [
     ],
     details: [
       'Collaborated in the development and research of embedded software for Battery Management System (BMS).',
-      'Reviewed and evaluated the existing BMS firmware program in “C” and Simulink model, refining algorithms for cell balancing, SoC and SoH estimation. Resolved software defects identified during the process, enhancing system functionality and accuracy.',
-      'Developed and implemented robust control algorithm for the BMS fault detection layer, safeguarding reliable signal processing and validation against hardware thresholds, achieving significant improvements in the HAL’s reliability.',
+      'Reviewed and evaluated the existing BMS firmware program in "C" and Simulink model, refining algorithms for cell balancing, SoC and SoH estimation. Resolved software defects identified during the process, enhancing system functionality and accuracy.',
+      'Developed and implemented robust control algorithm for the BMS fault detection layer, safeguarding reliable signal processing and validation against hardware thresholds, achieving significant improvements in the HAL\'s reliability.',
       'Led embedded BMS software/model validation, creating automated test cases for the Controller Area Network (CAN) conforming J1939 standard using CANalyzer, J-Link debugger, ensuring BMS configurability and communication integrity.',
     ],
     company: 'Lion Energy LLC',
-    icon: './lion-logo.svg',
+    icon: '/lion-logo.svg',
   },
   {
     title: 'Graduate Research Assistant',
@@ -67,26 +74,25 @@ const JOBS = [
       'Actively engaged in weekly meetings, maintained and managed project documentation on GitHub, promoting teamwork and knowledge exchange.',
     ],
     company: 'Southern Methodist University',
-    icon: './smu-mustang.svg',
+    icon: '/smu-mustang.svg',
   },
   {
     title: 'Teaching Assistant (CS3353: Fundamentals of Algorithm)',
     date: 'Feb, 2023 - May, 2023',
-
     details: [
       'Actively supported the professor and students in the course, effectively addressing inquiries.',
       'Responsible for assessing assignments, providing constructive feedback to support students course development.',
       "Enhanced students' academic understanding and progress through effective communication and targeted tutoring.",
     ],
     company: 'Southern Methodist University',
-    icon: './smu-mustang.svg',
+    icon: '/smu-mustang.svg',
   },
   {
     title: 'Mechanical Engineer',
     date: 'Jun, 2021 - Jun, 2022',
     skills: [
       'Computer-Aided Design',
-      'Project Managemetn',
+      'Project Management',
       'Manufacturing Process Control',
       'Engineering Assistance',
     ],
@@ -96,66 +102,6 @@ const JOBS = [
       'Coordinated cross-department projects, reporting progress to the company, and facilitating management decisions.',
     ],
     company: 'Fuyao Glass Illinois Inc.',
-    icon: './fuyao-logo.svg',
+    icon: '/fuyao-logo.svg',
   },
 ];
-
-function ProfessionalItem() {
-  // Intersection observer on the container.
-  const { ref: containerRef, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  return (
-    <Box
-      ref={containerRef}
-      sx={{
-        width: '100%',
-        maxWidth: { xs: '100%', sm: '100%', md: '90%', lg: '90%' },
-        margin: '2 auto',
-        mt: '0.5em',
-      }}
-    >
-      <Timeline
-        sx={{
-          [`& .${timelineItemClasses.root}:before`]: {
-            flex: 0,
-            padding: 0,
-          },
-        }}
-      >
-        {JOBS.map((job, index) => (
-          <Grow
-            key={job.title + job.date}
-            in={inView}
-            style={{ transformOrigin: '0 0 0' }}
-            timeout={300 + index * 100}
-          >
-            <Box>
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot sx={{ backgroundColor: '#2f4f4f' }}>
-                    <CustomSvgIcon
-                      path={job.icon}
-                      style={{
-                        filter:
-                          'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7482%) hue-rotate(180deg) brightness(100%) contrast(100%)',
-                      }}
-                    />
-                  </TimelineDot>
-                  {index !== JOBS.length - 1 && <TimelineConnector />}
-                </TimelineSeparator>
-                <TimelineContent>
-                  <JobItem job={job} />
-                </TimelineContent>
-              </TimelineItem>
-            </Box>
-          </Grow>
-        ))}
-      </Timeline>
-    </Box>
-  );
-}
-
-export default ProfessionalItem;
