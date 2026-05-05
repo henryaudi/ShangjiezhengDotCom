@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 import EducationExperience from './EducationExperience';
 import ProfessionalExperience from './ProfessionalExperience';
+import { colors } from '../../../theme/colors';
 
 function Experience() {
   return (
@@ -9,7 +10,12 @@ function Experience() {
         <Typography
           variant='h5'
           component='h2'
-          style={{ textDecoration: 'underline', fontWeight: 'bold' }}
+          sx={{
+            fontWeight: 'bold',
+            borderLeft: `4px solid ${colors.accent}`,
+            paddingLeft: '0.6em',
+            lineHeight: 1.3,
+          }}
         >
           Experience
         </Typography>

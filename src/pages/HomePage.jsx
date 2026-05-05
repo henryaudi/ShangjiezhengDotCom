@@ -1,14 +1,12 @@
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid2';
 
-import styles from './HomePage.module.css';
-
-import PageNav from '../components/PageNav';
-import LeftPanel from '../components/LeftPanel';
-import RightPanel from '../components/RightPanel';
-import Footer from '../components/Footer';
+import PageNav from '../components/layout/PageNav';
+import LeftPanel from '../components/layout/LeftPanel';
+import RightPanel from '../components/layout/RightPanel';
+import Footer from '../components/layout/Footer';
 import { Box } from '@mui/material';
-import GoUp from '../components/GoUp';
+import GoUp from '../components/ui/GoUp';
 
 function HomePage() {
   return (
@@ -35,17 +33,17 @@ function HomePage() {
       >
         <Stack
           spacing={2}
-          sx={{ mt: '1em', width: '100%', maxWidth: 'xl', mx: 'auto' }}
+          sx={{ mt: '2em', width: '100%', maxWidth: 'xl', mx: 'auto' }}
         >
           <Grid
             container
             spacing={2}
             sx={{ px: { xs: 2, sm: 4, md: 6, lg: 8 } }}
           >
-            <Grid size={{ sm: 12, md: 3, lg: 2 }}>
+            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 3, xl: 2 }}>
               <LeftPanel />
             </Grid>
-            <Grid size={{ sm: 12, md: 9, lg: 10 }}>
+            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 9, xl: 10 }}>
               <RightPanel />
             </Grid>
           </Grid>

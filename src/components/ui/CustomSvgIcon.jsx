@@ -1,5 +1,4 @@
-import React from 'react';
-
+/* eslint-disable react/prop-types */
 function CustomSvgIcon({ path, style }) {
   return (
     <img

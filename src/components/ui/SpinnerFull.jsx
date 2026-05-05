@@ -6,7 +6,7 @@ function SpinnerFull() {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center', // Changed from alignContent
+        alignItems: 'center',
         height: '100vh',
         backgroundColor: '#aaa',
       }}

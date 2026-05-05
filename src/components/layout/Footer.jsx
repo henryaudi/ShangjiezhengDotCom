@@ -6,13 +6,16 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
+import { profile } from '../../data/profile';
+import { colors } from '../../theme/colors';
+
 function Footer() {
   return (
     <Grid
       container
       spacing={2}
       style={{
-        backgroundColor: 'darkslategray',
+        backgroundColor: colors.primary,
         color: 'white',
         padding: '1em',
         paddingBottom: '1.5em',
@@ -27,7 +30,7 @@ function Footer() {
         <Grid container spacing={1}>
           <Grid item size={{ md: 12 }}>
             <Typography variant='h5' component='h3' sx={{ fontWeight: 'bold' }}>
-              Shangjie(Henry) Zheng
+              {profile.displayName}
             </Typography>
           </Grid>
           <Grid
@@ -36,15 +39,9 @@ function Footer() {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <MailIcon style={{ marginRight: '0.5em' }} />
-            <Typography
-              sx={{
-                color: 'white',
-              }}
-            >
-              Email:
-            </Typography>
+            <Typography sx={{ color: 'white' }}>Email:</Typography>
             <IconButton
-              onClick={() => window.open('mailto:shangjiehz@gmail.com')}
+              onClick={() => window.open(`mailto:${profile.email}`)}
               sx={{
                 ml: '2px',
                 pl: '5px',
@@ -55,9 +52,7 @@ function Footer() {
               }}
             >
               <Box>
-                <Typography style={{ color: 'white' }}>
-                  shangjiehz@gmail.com
-                </Typography>
+                <Typography style={{ color: 'white' }}>{profile.email}</Typography>
               </Box>
             </IconButton>
           </Grid>
@@ -66,18 +61,8 @@ function Footer() {
             size={{ md: 12 }}
             style={{ display: 'flex', alignItems: 'center' }}
           >
-            <PhoneIcon
-              style={{
-                marginRight: '0.5em',
-              }}
-            />
-            <Typography
-              sx={{
-                color: 'white',
-              }}
-            >
-              Tel: (816) 437-5658
-            </Typography>
+            <PhoneIcon style={{ marginRight: '0.5em' }} />
+            <Typography sx={{ color: 'white' }}>Tel: {profile.phone}</Typography>
           </Grid>
         </Grid>
       </Grid>
@@ -109,34 +94,28 @@ function Footer() {
         order={{ xs: 2, sm: 2, md: 3 }}
         sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <IconButton
-            onClick={() => window.open('mailto:shangjiehz@gmail.com')}
+            onClick={() => window.open(`mailto:${profile.email}`)}
+            sx={{ minWidth: 44, minHeight: 44 }}
           >
             <MailIcon sx={{ color: 'white', mx: 2 }} />
           </IconButton>
           <IconButton
-            onClick={() =>
-              window.open('https://www.linkedin.com/in/shangjiezheng', '_blank')
-            }
+            onClick={() => window.open(profile.linkedin, '_blank')}
+            sx={{ minWidth: 44, minHeight: 44 }}
           >
             <LinkedInIcon sx={{ color: 'white', mx: 2 }} />
           </IconButton>
           <IconButton
-            onClick={() =>
-              window.open('https://github.com/henryaudi', '_blank')
-            }
+            onClick={() => window.open(profile.github, '_blank')}
+            sx={{ minWidth: 44, minHeight: 44 }}
           >
             <GitHubIcon sx={{ color: 'white', mx: 2 }} />
           </IconButton>
         </Box>
       </Grid>
+
       <Grid
         item
         size={{ xs: 12 }}
@@ -144,7 +123,7 @@ function Footer() {
         style={{ textAlign: 'center' }}
       >
         <Typography variant='body2' component='p'>
-          &copy; {new Date().getFullYear()} Shangjie Zheng. All rights reserved.
+          &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
           <br />
           Website designed using components from{' '}
           <a

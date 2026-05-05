@@ -20,9 +20,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import MailIcon from '@mui/icons-material/Mail';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import DescriptionIcon from '@mui/icons-material/Description';
 import Divider from '@mui/material/Divider';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+
+import { profile } from '../../data/profile';
+import { colors } from '../../theme/colors';
 
 const pages = [
   { title: 'About', icon: <AccountBoxIcon /> },
@@ -37,14 +41,8 @@ function ResponsiveAppBar() {
 
   const appBarRef = React.useRef(null);
 
-  const handleOpenDrawer = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleCloseDrawer = () => {
-    setDrawerOpen(false);
-  };
-
+  const handleOpenDrawer = () => setDrawerOpen(true);
+  const handleCloseDrawer = () => setDrawerOpen(false);
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
     handleCloseDrawer();
@@ -54,31 +52,20 @@ function ResponsiveAppBar() {
     const section = document.getElementById(selectionId);
     if (section) {
       let offsetPosition = section.offsetTop;
-
       if (window.matchMedia('(max-width: 600px)').matches) {
         const appBarHeight = appBarRef.current
           ? appBarRef.current.clientHeight
           : 0;
         offsetPosition -= appBarHeight;
       }
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
     handleCloseNavMenu();
   };
 
   return (
     <>
-      <AppBar
-        ref={appBarRef}
-        position='static'
-        sx={{
-          bgcolor: 'darkslategray',
-        }}
-      >
+      <AppBar ref={appBarRef} position='static' sx={{ bgcolor: colors.primary }}>
         <Container maxWidth='xl'>
           <Toolbar disableGutters>
             <Box
@@ -99,7 +86,7 @@ function ResponsiveAppBar() {
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size='large'
-                aria-label='account of current user'
+                aria-label='open navigation menu'
                 aria-controls='menu-appbar'
                 aria-haspopup='true'
                 onClick={handleOpenDrawer}
@@ -110,20 +97,12 @@ function ResponsiveAppBar() {
               <Menu
                 id='menu-appbar'
                 anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
+                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
+                sx={{ display: { xs: 'block', md: 'none' } }}
               >
                 {pages.map((page) => (
                   <MenuItem
@@ -137,16 +116,13 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
             </Box>
+
             <Box
-              variant='h5'
               component='a'
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
@@ -157,6 +133,7 @@ function ResponsiveAppBar() {
                 style={{ height: '5.2rem', width: 'auto' }}
               />
             </Box>
+
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
@@ -168,6 +145,9 @@ function ResponsiveAppBar() {
                     my: 2,
                     mx: 1,
                     fontSize: '1rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
                     color: 'white',
                     display: 'block',
                     '&:hover': {
@@ -189,7 +169,7 @@ function ResponsiveAppBar() {
         onClose={handleCloseDrawer}
         PaperProps={{
           sx: {
-            bgcolor: '#1F3F3F',
+            bgcolor: colors.primaryDark,
             color: 'white',
             width: 250,
           },
@@ -205,9 +185,7 @@ function ResponsiveAppBar() {
             overflowY: 'auto',
             flexGrow: 1,
             scrollbarWidth: 'none',
-            '&::-webkit-scrollbar': {
-              display: 'none',
-            },
+            '&::-webkit-scrollbar': { display: 'none' },
             msOverflowStyle: 'none',
           }}
           role='presentation'
@@ -231,13 +209,10 @@ function ResponsiveAppBar() {
               <Typography textAlign='center'>{page.title}</Typography>
             </MenuItem>
           ))}
-          <Divider sx={{ borderColor: '#646464', borderBottomWidth: 'thin' }} />
+          <Divider sx={{ borderColor: colors.borderMuted, borderBottomWidth: 'thin' }} />
           <MenuItem
-            onClick={() => window.open('mailto:shangjiehz@gmail.com')}
-            sx={{
-              color: 'white',
-              '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
-            }}
+            onClick={() => window.open(`mailto:${profile.email}`)}
+            sx={{ color: 'white', '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
           >
             <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <MailIcon />
@@ -245,14 +220,8 @@ function ResponsiveAppBar() {
             <Typography textAlign='center'>Email</Typography>
           </MenuItem>
           <MenuItem
-            onClick={() =>
-              window.open('https://www.linkedin.com/in/shangjiezheng', '_blank')
-            }
-            sx={{
-              mt: '1em',
-              color: 'white',
-              '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
-            }}
+            onClick={() => window.open(profile.linkedin, '_blank')}
+            sx={{ mt: '1em', color: 'white', '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
           >
             <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <LinkedInIcon />
@@ -260,32 +229,31 @@ function ResponsiveAppBar() {
             <Typography textAlign='center'>LinkedIn</Typography>
           </MenuItem>
           <MenuItem
-            onClick={() => window.open('https://github.com/henryaudi')}
-            sx={{
-              mt: '1em',
-              color: 'white',
-              '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
-            }}
+            onClick={() => window.open(profile.github, '_blank')}
+            sx={{ mt: '1em', color: 'white', '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
           >
             <ListItemIcon sx={{ color: 'white', mr: 1 }}>
               <GitHubIcon />
             </ListItemIcon>
             <Typography textAlign='center'>GitHub</Typography>
           </MenuItem>
+          <MenuItem
+            onClick={() => window.open(profile.resumeUrl, '_blank')}
+            sx={{ mt: '1em', color: 'white', '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
+          >
+            <ListItemIcon sx={{ color: 'white', mr: 1 }}>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <Typography textAlign='center'>Resume</Typography>
+          </MenuItem>
         </Box>
 
         <Box flexGrow={1} />
 
         <Box
-          sx={{
-            pb: '0em',
-            textAlign: 'center',
-          }}
+          sx={{ pb: '0em', textAlign: 'center' }}
           onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             handleCloseDrawer();
           }}
         >
@@ -299,10 +267,9 @@ function ResponsiveAppBar() {
           <Typography
             variant='body2'
             component='p'
-            sx={{ color: 'white', fonrSize: '0.5rem' }}
+            sx={{ color: 'white', fontSize: '0.75rem' }}
           >
-            &copy; {new Date().getFullYear()} Shangjie Zheng. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
           </Typography>
         </Box>
       </Drawer>
