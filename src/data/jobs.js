@@ -22,6 +22,28 @@ export const jobs = [
     icon: '/lion-logo.svg',
   },
   {
+    title: 'Embedded Systems Engineer',
+    date: 'Jan, 2026 - Present',
+    skills: [
+      'Embedded C',
+      'Zephyr RTOS',
+      'Python',
+      'MATLAB',
+      'Simulink',
+      'Simscape',
+      'J1939',
+      'CAN'
+    ],
+    details: [
+      'Architected and developed a modular embedded application layer in C on Zephyr RTOS for Energy Storage Systems (ESS), enabling system-level coordination and control of up to six interconnected power distribution and expansion battery units operating as a unified energy platform.',
+      'Designed and implemented a distributed CAN (J1939) communication framework serving as the core system messaging backbone across inverter, EMS, BMS, MPPT, DC-DC, and power distribution domains, supporting peer-to-peer communication, broadcast telemetry, multipacket transport, and OTA firmware update workflows.',
+      'Built real-time task orchestration and fault management mechanisms using deterministic scheduling principles, improving operational reliability and ensuring safe coordination between energy conversion, battery management, and protection subsystems.',
+      'Led integration of production firmware modules into SIL/HIL validation environments using Simulink-based test harnesses, enabling closed-loop simulation, hardware abstraction, and repeatable regression testing for real-time control software prior to hardware deployment.'
+    ],
+    company: 'Lion Energy LLC',
+    icon: './lion-logo.svg',
+  },
+  {
     title: 'Control Systems Engineer',
     date: 'Dec, 2024 - Jan, 2026',
     skills: [
