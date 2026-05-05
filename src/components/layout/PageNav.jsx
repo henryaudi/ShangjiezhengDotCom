@@ -20,6 +20,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import MailIcon from '@mui/icons-material/Mail';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import DescriptionIcon from '@mui/icons-material/Description';
 import Divider from '@mui/material/Divider';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
@@ -37,29 +38,8 @@ const pages = [
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState('about');
 
   const appBarRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const sectionIds = pages.map((p) => p.title.toLowerCase());
-    const observers = [];
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.3 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
 
   const handleOpenDrawer = () => setDrawerOpen(true);
   const handleCloseDrawer = () => setDrawerOpen(false);
@@ -155,35 +135,29 @@ function ResponsiveAppBar() {
             </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => {
-                const isActive =
-                  activeSection === page.title.toLowerCase();
-                return (
-                  <Button
-                    key={page.title}
-                    onClick={() =>
-                      handleScrollToSelection(page.title.toLowerCase())
-                    }
-                    sx={{
-                      my: 2,
-                      mx: 1,
-                      fontSize: '1rem',
-                      color: 'white',
-                      display: 'block',
-                      borderBottom: isActive
-                        ? `2px solid ${colors.accent}`
-                        : '2px solid transparent',
-                      borderRadius: 0,
-                      transition: 'border-bottom-color 0.2s ease',
-                      '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                      },
-                    }}
-                  >
-                    {page.title}
-                  </Button>
-                );
-              })}
+              {pages.map((page) => (
+                <Button
+                  key={page.title}
+                  onClick={() =>
+                    handleScrollToSelection(page.title.toLowerCase())
+                  }
+                  sx={{
+                    my: 2,
+                    mx: 1,
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: 'white',
+                    display: 'block',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    },
+                  }}
+                >
+                  {page.title}
+                </Button>
+              ))}
             </Box>
           </Toolbar>
         </Container>
@@ -262,6 +236,15 @@ function ResponsiveAppBar() {
               <GitHubIcon />
             </ListItemIcon>
             <Typography textAlign='center'>GitHub</Typography>
+          </MenuItem>
+          <MenuItem
+            onClick={() => window.open(profile.resumeUrl, '_blank')}
+            sx={{ mt: '1em', color: 'white', '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
+          >
+            <ListItemIcon sx={{ color: 'white', mr: 1 }}>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <Typography textAlign='center'>Resume</Typography>
           </MenuItem>
         </Box>
 

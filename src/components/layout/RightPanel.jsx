@@ -8,7 +8,7 @@ function RightPanel() {
   return (
     <Stack
       spacing={5}
-      sx={{ marginLeft: { xs: '0', md: '3.5em' }, marginBottom: '2em' }}
+      sx={{ marginLeft: { xs: '0', lg: '3.5em' }, marginBottom: '2em' }}
     >
       <div id='about'>
         <Welcome />

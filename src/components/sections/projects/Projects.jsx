@@ -55,51 +55,38 @@ function Projects() {
           {({ inView, ref }) => (
             <Grow in={inView}>
               <div ref={ref} id='moreprojects' className='project-item'>
-                <Paper elevation={16} sx={{ padding: '16px' }}>
-                  <div
+                <Paper
+                  elevation={16}
+                  sx={{
+                    padding: '16px 24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    gap: 1.5,
+                  }}
+                >
+                  <CustomSvgIcon path='/github-svgrepo-com.svg' />
+                  <Typography variant='body1' component='span'>
+                    For more projects, visit my
+                  </Typography>
+                  <a
+                    href={profile.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
                     style={{
-                      fontWeight: 'bold',
-                      display: 'flex',
+                      display: 'inline-flex',
                       alignItems: 'center',
+                      gap: '4px',
+                      color: colors.accent,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      borderBottom: `2px solid ${colors.accent}`,
+                      lineHeight: 1.2,
                     }}
                   >
-                    <div
-                      style={{
-                        minWidth: '30px',
-                        marginRight: '0.5em',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <CustomSvgIcon path='/github-svgrepo-com.svg' />
-                    </div>
-                    <Typography variant='h6' component='h4'>
-                      <span style={{ alignItems: 'center', display: 'inline-flex' }}>
-                        For more interesting projects, visit my&nbsp;
-                        <a
-                          href={profile.github}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          style={{
-                            textDecoration: 'underline',
-                            alignItems: 'center',
-                            color: colors.accent,
-                            display: 'inline-flex',
-                          }}
-                        >
-                          <OpenInNewIcon
-                            sx={{
-                              color: colors.accent,
-                              marginLeft: '4px',
-                              verticalAlign: 'middle',
-                            }}
-                          />
-                          GitHub!
-                        </a>
-                      </span>
-                    </Typography>
-                  </div>
+                    <OpenInNewIcon sx={{ fontSize: '1rem' }} />
+                    GitHub
+                  </a>
                 </Paper>
               </div>
             </Grow>

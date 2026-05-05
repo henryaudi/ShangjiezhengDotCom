@@ -3,11 +3,6 @@ import { Box, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import StickyBox from 'react-sticky-box';
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
 import { profile } from '../../data/profile';
 import ContactInfo from '../ui/ContactInfo';
 
@@ -17,18 +12,19 @@ function LeftPanel() {
 
   return (
     <StickyBox offsetTop={10} offsetBottom={10}>
-      <Grid container spacing={2} sx={{ position: 'sticky' }}>
+      <Grid container spacing={{ xs: 1, sm: 1, lg: 2 }} sx={{ position: 'sticky' }}>
         <Grid
-          size={{ xs: 4, sm: 4, md: 12 }}
+          size={{ xs: 4, sm: 3, lg: 12 }}
           sx={{
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
           }}
         >
           <Box
             sx={{
               width: '100%',
+              maxWidth: { lg: '200px' },
               aspectRatio: '1',
               position: 'relative',
               borderRadius: 1,
@@ -81,7 +77,7 @@ function LeftPanel() {
           </Box>
         </Grid>
 
-        <Grid size={{ xs: 8, sm: 8, md: 12 }}>
+        <Grid size={{ xs: 8, sm: 9, lg: 12 }}>
           <Stack spacing={0}>
             <Box sx={{ borderBottom: '1px solid grey', pb: '10px' }}>
               <Typography
@@ -89,19 +85,17 @@ function LeftPanel() {
                 component='h2'
                 sx={{ fontWeight: 'bold' }}
               >
-                {profile.name}
-                <br />
-                (Henry)
+                {profile.name} (Henry)
               </Typography>
               <Typography
                 variant='body2'
-                sx={{ mt: '10px', lineHeight: 1.6 }}
+                sx={{ mt: '4px', lineHeight: 1.6 }}
               >
-                MS. Computer Science
+                Embedded Systems Engineer
                 <br />
-                Lyle School of Engineering
+                @Lion Energy, LLC
                 <br />
-                Southern Methodist University
+                MS. Computer Science · SMU
               </Typography>
             </Box>
             <ContactInfo />

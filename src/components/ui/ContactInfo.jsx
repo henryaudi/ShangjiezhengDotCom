@@ -38,18 +38,19 @@ const contacts = [
 
 function ContactInfo() {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={{ xs: 0, sm: 2 }}>
       {contacts.map(({ label, icon: Icon, href, target }) => (
         <Grid
           key={label}
-          size={{ sm: 3, md: 12 }}
+          size={{ xs: 3, sm: 3, lg: 12 }}
           sx={{ display: 'flex', alignItems: 'center' }}
         >
           <IconButton
             onClick={() => window.open(href, target)}
             sx={{
-              minWidth: 44,
-              minHeight: 44,
+              minWidth: { xs: 40, sm: 44 },
+              minHeight: { xs: 40, sm: 44 },
+              px: { xs: 0.5, sm: 1 },
               '&:hover': {
                 backgroundColor: 'rgba(0, 0, 0, 0.04)',
                 borderRadius: 0,

@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { ListItem, Typography, Collapse, List } from '@mui/material';
+import { Box, ListItem, Typography, Collapse, List } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import DropDownButton from '../../ui/DropDownButton';
 
-function JobItem({ job }) {
+// showCompany=true  → legacy single-item view (company + date side by side)
+// showCompany=false → grouped view (company is shown by parent; only date here)
+function JobItem({ job, showCompany = true }) {
   const [open, setOpen] = useState(false);
 
   const { title, date, details, company, skills } = job;
@@ -17,33 +19,52 @@ function JobItem({ job }) {
       style={{ padding: '0', marginLeft: '0', margin: '0' }}
     >
       <Grid container spacing={1} justifyContent='space-between'>
-        <Grid item size={{ xs: 12, sm: 6 }}>
-          <Typography variant='h7' component='h3'>
-            {company}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          size={{ xs: 12, sm: 6 }}
-          sx={{ textAlign: { xs: 'left', sm: 'right' } }}
-        >
-          {date}
-        </Grid>
+
+        {showCompany ? (
+          /* ── Legacy / standalone view ─────────────────────────────── */
+          <>
+            <Grid item size={{ xs: 12, sm: 6 }}>
+              <Typography variant='h6' component='h3' fontWeight='bold'>
+                {company}
+              </Typography>
+            </Grid>
+            <Grid
+              item
+              size={{ xs: 12, sm: 6 }}
+              sx={{ textAlign: { xs: 'left', sm: 'right' } }}
+            >
+              {date}
+            </Grid>
+          </>
+        ) : (
+          /* ── Grouped view: date only ──────────────────────────────── */
+          <Grid item size={{ xs: 12 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Typography variant='body2' color='text.secondary'>
+                {date}
+              </Typography>
+            </Box>
+          </Grid>
+        )}
+
+        {/* Role title */}
         <Grid
           item
           size={{ xs: 12 }}
           style={{ display: 'flex', alignItems: 'center' }}
         >
-          <PermIdentityIcon />
+          <PermIdentityIcon fontSize='small' />
           <span style={{ marginLeft: '8px' }}>{title}</span>
         </Grid>
+
+        {/* Skills */}
         {skills && (
           <Grid
             item
             size={{ xs: 12 }}
             style={{ display: 'flex', alignItems: 'center' }}
           >
-            <ConstructionIcon />
+            <ConstructionIcon fontSize='small' />
             <span style={{ marginLeft: '8px' }}>
               <Typography
                 variant='body2'
@@ -58,6 +79,8 @@ function JobItem({ job }) {
             </span>
           </Grid>
         )}
+
+        {/* Job details collapse */}
         <Grid item size={{ xs: 12 }}>
           <DropDownButton open={open} setOpen={setOpen} buttonTitle='Job Details' />
           <Collapse in={open} timeout='auto' unmountOnExit style={{ marginLeft: '2em' }}>
@@ -70,12 +93,12 @@ function JobItem({ job }) {
             </List>
           </Collapse>
         </Grid>
+
         <div
           style={{
             width: '100%',
-            margin: '1em 0',
             marginBottom: '0',
-            marginTop: '1em',
+            marginTop: '0.75em',
           }}
         />
       </Grid>
