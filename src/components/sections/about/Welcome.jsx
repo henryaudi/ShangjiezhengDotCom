@@ -85,8 +85,9 @@ function Welcome() {
 
 const interests = [
   { icon: '/distributed-database.svg', label: 'Distributed Systems & Data Streaming' },
-  { icon: '/full-stack-terminal.svg', label: 'Full-Stack Development' },
   { icon: '/real-time-systems.svg', label: 'Real-Time Systems Software' },
+  { icon: '/binary-computer.svg', label: 'CPU & Memory Architecture' },
+  { icon: '/full-stack-terminal.svg', label: 'Full-Stack Development' },
   { icon: '/machine-learning-svgrepo-com.svg', label: 'Applied Machine Learning Systems' },
 ];
 
